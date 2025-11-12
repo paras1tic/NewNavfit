@@ -118,7 +118,7 @@
             }
         }
 
-        /* Styling for the checkboxes block */
+        /* Styling for the checkbox group */
         .checkbox-group {
             margin-top: 20px;
         }
@@ -229,16 +229,16 @@
         <div class="section-title">Status Information</div>
         <div class="checkbox-group">
             <label for="act">
-                <input type="checkbox" id="act" name="status"> ACT
+                <input type="checkbox" id="act" name="status" onclick="onlyOne(this)"> ACT
             </label>
             <label for="tar">
-                <input type="checkbox" id="tar" name="status"> TAR
+                <input type="checkbox" id="tar" name="status" onclick="onlyOne(this)"> TAR
             </label>
             <label for="inact">
-                <input type="checkbox" id="inact" name="status"> INACT
+                <input type="checkbox" id="inact" name="status" onclick="onlyOne(this)"> INACT
             </label>
             <label for="ados">
-                <input type="checkbox" id="ados" name="status"> AT/ADOS/265
+                <input type="checkbox" id="ados" name="status" onclick="onlyOne(this)"> AT/ADOS/265
             </label>
         </div>
 
@@ -249,6 +249,18 @@
 </div>
 
 <script src="chief-eval-form.js"></script>
+
+<script>
+    // JavaScript to allow only one checkbox to be selected at a time
+    function onlyOne(checkbox) {
+        var checkboxes = document.getElementsByName('status');
+        checkboxes.forEach((item) => {
+            if (item !== checkbox) {
+                item.checked = false;
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
