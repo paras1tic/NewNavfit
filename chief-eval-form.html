@@ -47,13 +47,19 @@
             margin-bottom: 15px;
         }
 
+        /* First four blocks in a two-column grid */
+        .top-blocks {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 20px; /* Add some space between columns */
+            margin-bottom: 20px; /* Space below this block */
+        }
+
         .form-group label {
-            width: 40%;
             font-size: 14px;
         }
 
         .form-group input, .form-group select {
-            width: 55%;
             padding: 8px;
             font-size: 14px;
             border: 1px solid #ccc;
@@ -92,6 +98,7 @@
                 width: 90%;
             }
 
+            /* Stack the input fields vertically on mobile */
             .form-group {
                 flex-direction: column;
             }
@@ -102,6 +109,12 @@
 
             .form-group input, .form-group select {
                 width: 100%;
+            }
+
+            /* Ensure the top blocks are stacked on mobile */
+            .top-blocks {
+                grid-template-columns: 1fr; /* Stack vertically on mobile */
+                gap: 10px;
             }
         }
     </style>
@@ -115,24 +128,26 @@
         <!-- Personal Info Section -->
         <div class="section-title">Personal Information</div>
 
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Full Name" required>
-        </div>
+        <div class="top-blocks">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Full Name" required>
+            </div>
 
-        <div class="form-group">
-            <label for="rating">Rating</label>
-            <input type="text" id="rating" placeholder="Rating" required>
-        </div>
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="text" id="rating" placeholder="Rating" required>
+            </div>
 
-        <div class="form-group">
-            <label for="designation">Designation</label>
-            <input type="text" id="designation" placeholder="Designation" required>
-        </div>
+            <div class="form-group">
+                <label for="designation">Designation</label>
+                <input type="text" id="designation" placeholder="Designation" required>
+            </div>
 
-        <div class="form-group">
-            <label for="ssn">SSN</label>
-            <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
+            <div class="form-group">
+                <label for="ssn">SSN</label>
+                <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
+            </div>
         </div>
 
         <!-- Service Information Section -->

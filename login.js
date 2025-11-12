@@ -8,8 +8,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value;
 
     // Simple login validation (for now, hardcoded username and password)
-    const validUsername = 'militaryUser';  // Simulated military username
-    const validPassword = 'securePassword123';  // Simulated password
+    const validUsername = 'admin';  // Simulated military username
+    const validPassword = 'admin';  // Simulated password
 
     const errorMessage = document.getElementById('errorMessage');
 
