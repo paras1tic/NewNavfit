@@ -264,9 +264,11 @@
         <div class="form-group">
             <label for="promotionStatus">Promotion Status</label>
             <select id="promotionStatus" required>
-                <option value="Promoted">Promoted</option>
-                <option value="Pending">Pending</option>
-                <option value="Not Promoted">Not Promoted</option>
+                <option value="none">   </option>
+                <option value="Regular">Regular</option>
+                <option value="Frocked">Frocked</option>
+                <option value="Selected">Selected</option>
+                <option value="Spot">Spot</option>
             </select>
         </div>
 
@@ -280,13 +282,61 @@
 
         <div class="form-group">
             <label for="physicalReadiness">Physical Readiness</label>
-            <input type="text" id="physicalReadiness" placeholder="Physical Readiness" required>
+            <select id="pysicalReadiness" required>
+                <option value="Maximum">Maximum</option>
+                <option value="Good">Good</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Probationary">Probationary</option>
+                <option value="Failure">Failure</option>
+                <option value="MedWaiver">Med Waiver</option>
+                <option value="DepOp">Dep/OP</option>
+                <option value="none">None</option>
+            </select>
         </div>
 
-        <div class="form-group">
-            <label for="billetSubcategory">Billet Subcategory</label>
-            <input type="text" id="billetSubcategory" placeholder="Billet Subcategory" required>
+                <div class="form-group">
+            <label for="billetSubcategory">21.  Billet Subcategory</label>
+            <select id="billetSubcategory" required>
+                <option value="NA">NA</option>
+                <option value="Basic">BASIC</option>
+                <option value="Approved">APPROVED</option>
+                <option value="Screened">SCREENED</option>
+                <option value="indivAug">Probationary</option>
+                <option value="COAfloat">CO AFLOAT</option>
+                <option value="COAshore">CO ASHORE</option>
+                <option value="OIC">OIC</option>
+                <option value="seaComp">SEA COMP</option>
+                <option value="CRF">CRF</option>
+                <option value="canvasser">CANVASER</option>
+                <option value="resident">RESIDENT</option>
+                <option value="intern">INTERN</option>
+                <option value="instructor">INSTRUCTOR</option>
+                <option value="student">STUDENT</option>
+                <option value="resac1">RESAC1</option>
+                <option value="resac6">RESAC6</option>
+                <option value="special1">SPECIAL01</option>
+                <option value="special2">SPECIAL02</option>
+                <option value="special3">SPECIAL03</option>
+                <option value="special4">SPECIAL04</option>
+                <option value="special5">SPECIAL05</option>
+                <option value="SPECIAL06">SPECIAL06</option>
+                <option value="special07">SPECIAL07</option>
+                <option value="special08">SPECIAL08</option>
+                <option value="special09">SPECIAL09</option>
+                <option value="special10">SPECIAL10</option>
+                <option value="special11">SPECIAL11</option>
+                <option value="special12">SPECIAL12</option>
+                <option value="special13">SPECIAL13</option>
+                <option value="special14">SPECIAL14</option>
+                <option value="special15">SPECIAL15</option>
+                <option value="special16">SPECIAL16</option>
+                <option value="special17">SPECIAL17</option>
+                <option value="special18">SPECIAL18</option>
+                <option value="special19">SPECIAL19</option>
+                <option value="special20">SPECIAL20</option>
+            </select>
         </div>
+
 
         <div class="form-group">
             <label for="reportingSenior">Reporting Senior</label>
@@ -308,6 +358,12 @@
             <input type="text" id="title" placeholder="Title" required>
         </div>
 
+        <div class="section-title">Block 28: Command Employment and Command Achievements</div>
+            <div class="form-group textarea-group">
+                <label for="block28">Command Employment and Command Achievements</label>
+                <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
+        </div>
+
         <div class="performance-section">
             <table class="performance-table">
                 <thead>
@@ -320,12 +376,10 @@
                 <tbody>
                     <tr>
                         <td class="performance-trait-text">
-33.
-TECHNICAL MASTER.
-- Technical expert in rating and leader.
-- Uses technical knowledge and experience to produce well-trained teams able to execute assigned missions with excellence.
-- Applies knowledge, skills, and abilities to complete mission.
- C  M  P
+33. TECHNICAL MASTERY.
+- Technical expert in rating and community.
+- Uses technical knowledge and experience to produce well-trained teams able to execute the command missions with excellence.
+- Applies knowledge, skills, and abilities to meet any mission.
                         </td>
                         <td>
                             <div class="performance-grade">
@@ -350,11 +404,7 @@ TECHNICAL MASTER.
             </table>
         </div>
 
-        <div class="section-title">Block 28: Command Employment and Command Achievements</div>
-        <div class="form-group textarea-group">
-            <label for="block28">Command Employment and Command Achievements</label>
-            <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
-        </div>
+
 
         <!-- Checkbox Block for ACT, TAR, INACT, AT/ADOS/265 -->
         <div class="section-title">Status Information</div>
