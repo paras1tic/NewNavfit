@@ -66,6 +66,38 @@
             border-radius: 4px;
         }
 
+        .form-group textarea {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            width: 100%;
+        }
+
+        .form-group.textarea-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group.textarea-group label {
+            margin-bottom: 8px;
+        }
+
+        .form-group.column-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group.column-group label {
+            margin-bottom: 8px;
+        }
+
+        .form-group.column-group input,
+        .form-group.column-group textarea {
+            width: 100%;
+        }
+
         .form-group input[type="text"].ssn-mask {
             letter-spacing: 2px;
         }
@@ -223,6 +255,22 @@
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" id="title" placeholder="Title" required>
+        </div>
+
+        <div class="section-title">Block 28: Command Employment and Command Achievements</div>
+        <div class="form-group textarea-group">
+            <label for="block28">Command Employment and Command Achievements</label>
+            <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
+        </div>
+
+        <div class="section-title">Block 29: Primary/Watch-standing Duties/Collateral</div>
+        <div class="form-group column-group">
+            <label for="block29Abbreviation">Primary Duty Abbreviation</label>
+            <input type="text" id="block29Abbreviation" placeholder="Enter primary duty abbreviation" maxlength="14" required>
+        </div>
+        <div class="form-group column-group">
+            <label for="block29Duties">Qualifications and Watch-standing</label>
+            <textarea id="block29Duties" placeholder="Enter qualifications and watch-standing" maxlength="250" rows="4" required></textarea>
         </div>
 
         <!-- Checkbox Block for ACT, TAR, INACT, AT/ADOS/265 -->
