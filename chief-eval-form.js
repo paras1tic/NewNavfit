@@ -49,3 +49,21 @@ document.getElementById('chiefEvalForm').addEventListener('submit', function (ev
 });
 
 
+const technicalMasterGradeSelect = document.getElementById('technicalMasterGrade');
+const technicalMasterGradeScore = document.getElementById('technicalMasterGradeScore');
+
+function updateTechnicalMasterScore() {
+    if (!technicalMasterGradeSelect || !technicalMasterGradeScore) {
+        return;
+    }
+
+    technicalMasterGradeScore.textContent = technicalMasterGradeSelect.value;
+}
+
+if (technicalMasterGradeSelect) {
+    technicalMasterGradeSelect.addEventListener('change', updateTechnicalMasterScore);
+    technicalMasterGradeSelect.addEventListener('input', updateTechnicalMasterScore);
+    updateTechnicalMasterScore();
+}
+
+
