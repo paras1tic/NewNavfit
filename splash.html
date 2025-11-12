@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Option</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; }
+        .container { width: 300px; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; text-align: center; }
+        h2 { margin-bottom: 20px; }
+        button { width: 100%; padding: 15px; background-color: #007BFF; color: white; border: none; cursor: pointer; margin: 5px 0; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Choose an Option</h2>
+    <button id="newEval">New EVAL E1-E6</button>
+    <button id="newChiefEval">New Chief Eval</button>
+    <button id="newFitrep">New FITREP</button>
+    <button id="continuePrev">Continue Previous</button>
+</div>
+
+<script>
+    // Event listeners for the buttons
+    document.getElementById('newEval').addEventListener('click', function() {
+        window.location.href = 'eval-form.html';  // Link to the EVAL form
+    });
+
+    document.getElementById('newChiefEval').addEventListener('click', function() {
+        window.location.href = 'chief-eval-form.html';  // Link to Chief Eval form
+    });
+
+    document.getElementById('newFitrep').addEventListener('click', function() {
+        window.location.href = 'fitrep-form.html';  // Link to FITREP form
+    });
+
+    document.getElementById('continuePrev').addEventListener('click', function() {
+        // For now, we'll redirect to the same FITREP form page, but you can modify this logic to load saved data.
+        window.location.href = 'continue-form.html';  // Redirect to continue previous session
+    });
+</script>
+
+</body>
+</html>

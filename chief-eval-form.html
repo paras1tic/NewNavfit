@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chief Eval Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; }
+        .form-container { width: 600px; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        h2 { text-align: center; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .section-title { font-weight: bold; margin-top: 20px; }
+        .ssn-mask { font-family: monospace; letter-spacing: 2px; }
+        .error { color: red; text-align: center; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Chief Eval Form</h2>
+    <form id="chiefEvalForm">
+
+        <!-- Name -->
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Full Name" required>
+
+        <!-- Rating -->
+        <label for="rating">Rating</label>
+        <input type="text" id="rating" placeholder="Rating" required>
+
+        <!-- Designation -->
+        <label for="designation">Designation</label>
+        <input type="text" id="designation" placeholder="Designation" required>
+
+        <!-- SSN -->
+        <label for="ssn">SSN</label>
+        <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required pattern="\d{3}-\d{2}-\d{4}" maxlength="11">
+
+        <!-- UIC -->
+        <label for="uic">UIC</label>
+        <input type="text" id="uic" placeholder="UIC" required>
+
+        <!-- Ship/Station -->
+        <label for="shipStation">Ship/Station</label>
+        <input type="text" id="shipStation" placeholder="Ship/Station" required>
+
+        <!-- Promotion Status -->
+        <label for="promotionStatus">Promotion Status</label>
+        <select id="promotionStatus" required>
+            <option value="Promoted">Promoted</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Promoted">Not Promoted</option>
+        </select>
+
+        <!-- Date Reported -->
+        <label for="dateReported">Date Reported</label>
+        <input type="date" id="dateReported" required>
+
+        <!-- Physical Readiness -->
+        <label for="physicalReadiness">Physical Readiness</label>
+        <input type="text" id="physicalReadiness" placeholder="Physical Readiness" required>
+
+        <!-- Billet Subcategory -->
+        <label for="billetSubcategory">Billet Subcategory</label>
+        <input type="text" id="billetSubcategory" placeholder="Billet Subcategory" required>
+
+        <!-- Reporting Senior -->
+        <label for="reportingSenior">Reporting Senior</label>
+        <input type="text" id="reportingSenior" placeholder="Reporting Senior" required>
+
+        <!-- Grade -->
+        <label for="grade">Grade</label>
+        <input type="text" id="grade" placeholder="Grade" required>
+
+        <!-- Designator -->
+        <label for="desig">Designator</label>
+        <input type="text" id="desig" placeholder="Designator" required>
+
+        <!-- Title -->
+        <label for="title">Title</label>
+        <input type="text" id="title" placeholder="Title" required>
+
+        <button type="submit">Submit</button>
+    </form>
+    <div class="error" id="errorMessage"></div>
+</div>
+
+<script src="chief-eval-form.js"></script>
+
+</body>
+</html>
