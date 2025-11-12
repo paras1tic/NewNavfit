@@ -38,9 +38,7 @@ document.getElementById('chiefEvalForm').addEventListener('submit', function (ev
         grade: document.getElementById('grade').value,
         desig: document.getElementById('desig').value,
         title: document.getElementById('title').value,
-        block28: document.getElementById('block28').value,
-        block29Abbreviation: document.getElementById('block29Abbreviation').value,
-        block29Duties: document.getElementById('block29Duties').value
+        block28: document.getElementById('block28').value
     };
 
     // Handle form data (you can send it to a server or save locally)
@@ -49,3 +47,5 @@ document.getElementById('chiefEvalForm').addEventListener('submit', function (ev
     // Show success message (you can replace this with actual backend submission logic)
     alert('Form submitted successfully!');
 });
+
+
