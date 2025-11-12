@@ -248,6 +248,23 @@
             </div>
         </div>
 
+        <!-- Checkbox Block for ACT, TAR, INACT, AT/ADOS/265 -->
+        <div class="section-title">Status Information</div>
+        <div class="checkbox-group">
+            <label for="act">
+                <input type="checkbox" id="act" name="status" onclick="onlyOne(this)"> ACT
+            </label>
+            <label for="tar">
+                <input type="checkbox" id="tar" name="status" onclick="onlyOne(this)"> TAR
+            </label>
+            <label for="inact">
+                <input type="checkbox" id="inact" name="status" onclick="onlyOne(this)"> INACT
+            </label>
+            <label for="ados">
+                <input type="checkbox" id="ados" name="status" onclick="onlyOne(this)"> AT/ADOS/265
+            </label>
+        </div>
+
         <!-- Service Information Section -->
         <div class="section-title">Service Information</div>
 
@@ -277,11 +294,46 @@
             <input type="date" id="dateReported" required>
         </div>
 
-        <!-- Evaluation Information Section -->
-        <div class="section-title">Evaluation Information</div>
+        <div class="section-title">Occasion For Report</div>
+        <div class="checkbox-group">
+            <label for="periodic">
+                <input type="checkbox" id="periodic" name="periodic"> 10. Periodic
+            </label>
+            <label for="detachi">
+                <input type="checkbox" id="detachi" name="detachi"> 11. Detachment of Individual
+            </label>
+            <label for="detachr">
+                <input type="checkbox" id="detachr" name="detachr"> 12. Detachment of Reporting Senior
+            </label>
+            <label for="special">
+                <input type="checkbox" id="special" name="special"> 13. Special
+            </label>
+        </div>
 
         <div class="form-group">
-            <label for="physicalReadiness">Physical Readiness</label>
+            <label for="reportperiod">Period of Report</label>
+            <input type="date" id="fromdate" required>14. From
+            <input type="date" id="fromdate" required>15. To
+        </div>
+
+        <div class="section-title">Type of Report</div>
+        <div class="checkbox-group">
+            <label for="reportType">
+                <input type="checkbox" id="regular" name="regular"> 17. Regular
+            </label>
+            <label for="concurrent">
+                <input type="checkbox" id="concurrent" name="concurrent"> 18. Concurrent
+            </label>
+            <label for="opscdr">
+                <input type="checkbox" id="opscdr" name="opscdr"> 19. Ops Cdr
+            </label>
+        </div>
+
+        <!-- Evaluation Information Section -->
+        <div class="section-title">Physical Readiness</div>
+
+        <div class="form-group">
+            <label for="physicalReadiness">20. Physical Readiness</label>
             <select id="pysicalReadiness" required>
                 <option value="Maximum">Maximum</option>
                 <option value="Good">Good</option>
@@ -339,23 +391,33 @@
 
 
         <div class="form-group">
-            <label for="reportingSenior">Reporting Senior</label>
+            <label for="reportingSenior">22. Reporting Senior (LAST, FI MI)</label>
             <input type="text" id="reportingSenior" placeholder="Reporting Senior" required>
         </div>
 
         <div class="form-group">
-            <label for="grade">Grade</label>
+            <label for="grade">23. Grade</label>
             <input type="text" id="grade" placeholder="Grade" required>
         </div>
 
         <div class="form-group">
-            <label for="desig">Designator</label>
+            <label for="desig">24. Desig</label>
             <input type="text" id="desig" placeholder="Designator" required>
         </div>
 
         <div class="form-group">
-            <label for="title">Title</label>
+            <label for="title">25. Title</label>
             <input type="text" id="title" placeholder="Title" required>
+        </div>        
+        
+        <div class="form-group">
+            <label for="title">26. UIC</label>
+            <input type="text" id="title" placeholder="Title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ssn">27.  SSN</label>
+            <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
         </div>
 
         <div class="section-title">Block 28: Command Employment and Command Achievements</div>
@@ -390,13 +452,20 @@
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
+                                <div id="technicalMasterText">-Demonstrates thorough rating knowledge of all technical actions, duties and procedures.
+                                    -Tactical knowledge and skill in specialty equal to others of the same rate and experience.
+                                    -Competently performs routine and new tasks within rating
+                                </div>
                                 <div id="technicalMasterGradeScore" class="performance-grade-score">3.0</div>
+
                             </div>
                         </td>
                         <td>
                             <div class="performance-comments">
-                                <textarea id="technicalMasterComment1">Managed CHARTS, coordinated 21 Naval Aviation Maintenance Program policy change proposals.</textarea>
-                                <textarea id="technicalMasterComment2">Supported CTR in automated CHARTS workflows, streamlined operations and boosted productivity.</textarea>
+                                <textarea id="technicalMasterComment1"></textarea>
+                                <textarea id="technicalMasterComment2"></textarea>
+                                <textarea id="technicalMasterComment3"></textarea>
+
                             </div>
                         </td>
                     </tr>
@@ -406,22 +475,7 @@
 
 
 
-        <!-- Checkbox Block for ACT, TAR, INACT, AT/ADOS/265 -->
-        <div class="section-title">Status Information</div>
-        <div class="checkbox-group">
-            <label for="act">
-                <input type="checkbox" id="act" name="status" onclick="onlyOne(this)"> ACT
-            </label>
-            <label for="tar">
-                <input type="checkbox" id="tar" name="status" onclick="onlyOne(this)"> TAR
-            </label>
-            <label for="inact">
-                <input type="checkbox" id="inact" name="status" onclick="onlyOne(this)"> INACT
-            </label>
-            <label for="ados">
-                <input type="checkbox" id="ados" name="status" onclick="onlyOne(this)"> AT/ADOS/265
-            </label>
-        </div>
+
 
         <!-- Submit Button -->
         <button type="submit">Submit</button>
