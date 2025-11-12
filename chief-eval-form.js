@@ -62,7 +62,6 @@ function updateTechnicalMasterScore() {
 
 if (technicalMasterGradeSelect) {
     technicalMasterGradeSelect.addEventListener('change', updateTechnicalMasterScore);
-    technicalMasterGradeSelect.addEventListener('input', updateTechnicalMasterScore);
     updateTechnicalMasterScore();
 }
 
