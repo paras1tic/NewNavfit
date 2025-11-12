@@ -66,6 +66,38 @@
             border-radius: 4px;
         }
 
+        .form-group textarea {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            width: 100%;
+        }
+
+        .form-group.textarea-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group.textarea-group label {
+            margin-bottom: 8px;
+        }
+
+        .form-group.column-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group.column-group label {
+            margin-bottom: 8px;
+        }
+
+        .form-group.column-group input,
+        .form-group.column-group textarea {
+            width: 100%;
+        }
+
         .form-group input[type="text"].ssn-mask {
             letter-spacing: 2px;
         }
@@ -131,6 +163,89 @@
 
         .checkbox-group input {
             margin-right: 5px;
+        }
+
+        /* Performance traits section */
+        .performance-section {
+            margin-top: 30px;
+        }
+
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .performance-table th,
+        .performance-table td {
+            border: 1px solid #000;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .performance-table th {
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            background-color: #f5f5f5;
+            text-align: left;
+        }
+
+        .trait-number {
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        .trait-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .trait-description {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .trait-wrapper {
+            display: flex;
+        }
+
+        .grade-select {
+            width: 100%;
+        }
+
+        .add-grade {
+            margin-top: 8px;
+            padding: 6px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #007BFF;
+            background-color: #fff;
+            color: #007BFF;
+            border-radius: 4px;
+        }
+
+        .add-grade:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .comments-textarea {
+            width: 100%;
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
@@ -223,6 +338,89 @@
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" id="title" placeholder="Title" required>
+        </div>
+
+        <div class="section-title">Block 28: Command Employment and Command Achievements</div>
+        <div class="form-group textarea-group">
+            <label for="block28">Command Employment and Command Achievements</label>
+            <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
+        </div>
+
+        <div class="section-title">Block 29: Primary/Watch-standing Duties/Collateral</div>
+        <div class="form-group column-group">
+            <label for="block29Abbreviation">Primary Duty Abbreviation</label>
+            <input type="text" id="block29Abbreviation" placeholder="Enter primary duty abbreviation" maxlength="14" required>
+        </div>
+        <div class="form-group column-group">
+            <label for="block29Duties">Qualifications and Watch-standing</label>
+            <textarea id="block29Duties" placeholder="Enter qualifications and watch-standing" maxlength="250" rows="4" required></textarea>
+        </div>
+
+        <div class="section-title">Performance Traits and Comments</div>
+        <div class="performance-section">
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>Performance Traits</th>
+                        <th>Performance Grade</th>
+                        <th>Performance Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="trait-wrapper">
+                                <div class="trait-number">33.</div>
+                                <div>
+                                    <div class="trait-title">TECHNICAL MASTERY</div>
+                                    <p class="trait-description">Demonstrates thorough rating knowledge and professional expertise. Technical knowledge and practical application enhance mission readiness and unit performance.</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <label class="sr-only" for="trait33Grade">Performance grade for Technical Mastery</label>
+                            <select id="trait33Grade" class="grade-select">
+                                <option value="3.0 Meets Standards" selected>3.0 Meets Standards</option>
+                                <option value="4.0 Exceeds Standards">4.0 Exceeds Standards</option>
+                                <option value="5.0 Greatly Exceeds Standards">5.0 Greatly Exceeds Standards</option>
+                                <option value="2.0 Progressing">2.0 Progressing</option>
+                                <option value="1.0 Delinquent">1.0 Delinquent</option>
+                            </select>
+                            <button type="button" class="add-grade" data-target="trait33Grade">Add selection</button>
+                        </td>
+                        <td>
+                            <label class="sr-only" for="trait33Comments">Performance comments for Technical Mastery</label>
+                            <textarea id="trait33Comments" class="comments-textarea" maxlength="500" placeholder="Document performance achievements, results, and impacts." rows="5"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="trait-wrapper">
+                                <div class="trait-number">34.</div>
+                                <div>
+                                    <div class="trait-title">INSTITUTIONAL EXPERTISE</div>
+                                    <p class="trait-description">Demonstrates thorough knowledge of Navy programs, policies, and resources. Utilizes institutional expertise to advance command objectives and mentor Sailors.</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <label class="sr-only" for="trait34Grade">Performance grade for Institutional Expertise</label>
+                            <select id="trait34Grade" class="grade-select">
+                                <option value="3.0 Meets Standards" selected>3.0 Meets Standards</option>
+                                <option value="4.0 Exceeds Standards">4.0 Exceeds Standards</option>
+                                <option value="5.0 Greatly Exceeds Standards">5.0 Greatly Exceeds Standards</option>
+                                <option value="2.0 Progressing">2.0 Progressing</option>
+                                <option value="1.0 Delinquent">1.0 Delinquent</option>
+                            </select>
+                            <button type="button" class="add-grade" data-target="trait34Grade">Add selection</button>
+                        </td>
+                        <td>
+                            <label class="sr-only" for="trait34Comments">Performance comments for Institutional Expertise</label>
+                            <textarea id="trait34Comments" class="comments-textarea" maxlength="500" placeholder="Document performance achievements, results, and impacts." rows="5"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Checkbox Block for ACT, TAR, INACT, AT/ADOS/265 -->
