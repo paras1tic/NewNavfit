@@ -57,12 +57,7 @@ function updateTechnicalMasterScore() {
         return;
     }
 
-    const selectedValue = technicalMasterGradeSelect.value;
-    const scoreMatch = selectedValue.match(/^\s*([0-9]+(?:\.[0-9])?)/);
-
-    if (scoreMatch) {
-        technicalMasterGradeScore.textContent = scoreMatch[1];
-    }
+    technicalMasterGradeScore.textContent = technicalMasterGradeSelect.value;
 }
 
 if (technicalMasterGradeSelect) {
