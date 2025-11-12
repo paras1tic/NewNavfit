@@ -66,6 +66,24 @@
             border-radius: 4px;
         }
 
+        .form-group textarea {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            width: 100%;
+        }
+
+        .form-group.textarea-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group.textarea-group label {
+            margin-bottom: 8px;
+        }
+
         .form-group input[type="text"].ssn-mask {
             letter-spacing: 2px;
         }
@@ -223,6 +241,12 @@
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" id="title" placeholder="Title" required>
+        </div>
+
+        <div class="section-title">Block 28: Command Employment and Command Achievements</div>
+        <div class="form-group textarea-group">
+            <label for="block28">Command Employment and Command Achievements</label>
+            <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
         </div>
 
         <!-- Checkbox Block for ACT, TAR, INACT, AT/ADOS/265 -->

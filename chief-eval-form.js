@@ -37,7 +37,8 @@ document.getElementById('chiefEvalForm').addEventListener('submit', function (ev
         reportingSenior: document.getElementById('reportingSenior').value,
         grade: document.getElementById('grade').value,
         desig: document.getElementById('desig').value,
-        title: document.getElementById('title').value
+        title: document.getElementById('title').value,
+        block28: document.getElementById('block28').value
     };
 
     // Handle form data (you can send it to a server or save locally)
