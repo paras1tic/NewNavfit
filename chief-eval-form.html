@@ -18,7 +18,7 @@
         }
 
         .form-container {
-            width: 800px;
+            width: 1100px;
             padding: 30px;
             background-color: white;
             border-radius: 8px;
@@ -213,6 +213,7 @@
             border: 1px solid #000;
             border-radius: 0;
             font-size: 14px;
+            resize: none;
         }
     </style>
 </head>
@@ -247,114 +248,6 @@
             </div>
         </div>
 
-        <!-- Service Information Section -->
-        <div class="section-title">Service Information</div>
-
-        <div class="form-group">
-            <label for="uic">UIC</label>
-            <input type="text" id="uic" placeholder="UIC" required>
-        </div>
-
-        <div class="form-group">
-            <label for="shipStation">Ship/Station</label>
-            <input type="text" id="shipStation" placeholder="Ship/Station" required>
-        </div>
-
-        <div class="form-group">
-            <label for="promotionStatus">Promotion Status</label>
-            <select id="promotionStatus" required>
-                <option value="Promoted">Promoted</option>
-                <option value="Pending">Pending</option>
-                <option value="Not Promoted">Not Promoted</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="dateReported">Date Reported</label>
-            <input type="date" id="dateReported" required>
-        </div>
-
-        <!-- Evaluation Information Section -->
-        <div class="section-title">Evaluation Information</div>
-
-        <div class="form-group">
-            <label for="physicalReadiness">Physical Readiness</label>
-            <input type="text" id="physicalReadiness" placeholder="Physical Readiness" required>
-        </div>
-
-        <div class="form-group">
-            <label for="billetSubcategory">Billet Subcategory</label>
-            <input type="text" id="billetSubcategory" placeholder="Billet Subcategory" required>
-        </div>
-
-        <div class="form-group">
-            <label for="reportingSenior">Reporting Senior</label>
-            <input type="text" id="reportingSenior" placeholder="Reporting Senior" required>
-        </div>
-
-        <div class="form-group">
-            <label for="grade">Grade</label>
-            <input type="text" id="grade" placeholder="Grade" required>
-        </div>
-
-        <div class="form-group">
-            <label for="desig">Designator</label>
-            <input type="text" id="desig" placeholder="Designator" required>
-        </div>
-
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" placeholder="Title" required>
-        </div>
-
-        <div class="performance-section">
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>PERFORMANCE TRAITS</th>
-                        <th>PERFORMANCE GRADE</th>
-                        <th>PERFORMANCE COMMENTS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="performance-trait-text">
-33.
-TECHNICAL MASTER.
-- Technical expert in rating and leader.
-- Uses technical knowledge and experience to produce well-trained teams able to execute assigned missions with excellence.
-- Applies knowledge, skills, and abilities to complete mission.
- C  M  P
-                        </td>
-                        <td>
-                            <div class="performance-grade">
-                                <select id="technicalMasterGrade" name="technicalMasterGrade">
-                                    <option value="5.0 Greatly Exceeds Standards">5.0 Greatly Exceeds Standards</option>
-                                    <option value="4.0 Above Standards">4.0 Above Standards</option>
-                                    <option value="3.0 Meets Standards" selected>3.0 Meets Standards</option>
-                                    <option value="2.0 Progressing">2.0 Progressing</option>
-                                    <option value="1.0 Below Standards">1.0 Below Standards</option>
-                                </select>
-                                <div id="technicalMasterGradeScore" class="performance-grade-score">3.0</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="performance-comments">
-                                <textarea id="technicalMasterComment1">Managed CHARTS, coordinated 21 Naval Aviation Maintenance Program policy change proposals.</textarea>
-                                <textarea id="technicalMasterComment2">Supported CTR in automated CHARTS workflows, streamlined operations and boosted productivity.</textarea>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="section-title">Block 28: Command Employment and Command Achievements</div>
-        <div class="form-group textarea-group">
-            <label for="block28">Command Employment and Command Achievements</label>
-            <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
-        </div>
-
         <!-- Checkbox Block for ACT, TAR, INACT, AT/ADOS/265 -->
         <div class="section-title">Status Information</div>
         <div class="checkbox-group">
@@ -371,6 +264,220 @@ TECHNICAL MASTER.
                 <input type="checkbox" id="ados" name="status" onclick="onlyOne(this)"> AT/ADOS/265
             </label>
         </div>
+
+        <!-- Service Information Section -->
+        <div class="section-title">Service Information</div>
+
+        <div class="form-group">
+            <label for="uic">UIC</label>
+            <input type="text" id="uic" placeholder="UIC" required>
+        </div>
+
+        <div class="form-group">
+            <label for="shipStation">Ship/Station</label>
+            <input type="text" id="shipStation" placeholder="Ship/Station" required>
+        </div>
+
+        <div class="form-group">
+            <label for="promotionStatus">Promotion Status</label>
+            <select id="promotionStatus" required>
+                <option value="none">   </option>
+                <option value="Regular">Regular</option>
+                <option value="Frocked">Frocked</option>
+                <option value="Selected">Selected</option>
+                <option value="Spot">Spot</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dateReported">Date Reported</label>
+            <input type="date" id="dateReported" required>
+        </div>
+
+        <div class="section-title">Occasion For Report</div>
+        <div class="checkbox-group">
+            <label for="periodic">
+                <input type="checkbox" id="periodic" name="periodic"> 10. Periodic
+            </label>
+            <label for="detachi">
+                <input type="checkbox" id="detachi" name="detachi"> 11. Detachment of Individual
+            </label>
+            <label for="detachr">
+                <input type="checkbox" id="detachr" name="detachr"> 12. Detachment of Reporting Senior
+            </label>
+            <label for="special">
+                <input type="checkbox" id="special" name="special"> 13. Special
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="reportperiod">Period of Report</label>
+            <div class="checkbox-group">
+            <input type="date" id="fromdate" required>14. From
+            <input type="date" id="fromdate" required>15. To
+            </div>
+        </div>
+
+        <div class="section-title">Type of Report</div>
+        <div class="checkbox-group">
+            <label for="reportType">
+                <input type="checkbox" id="regular" name="regular"> 17. Regular
+            </label>
+            <label for="concurrent">
+                <input type="checkbox" id="concurrent" name="concurrent"> 18. Concurrent
+            </label>
+            <label for="opscdr">
+                <input type="checkbox" id="opscdr" name="opscdr"> 19. Ops Cdr
+            </label>
+        </div>
+
+        <!-- Evaluation Information Section -->
+        <div class="section-title">Physical Readiness</div>
+
+        <div class="form-group">
+            <label for="physicalReadiness">20. Physical Readiness</label>
+            <select id="pysicalReadiness" required>
+                <option value="Maximum">Maximum</option>
+                <option value="Good">Good</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Probationary">Probationary</option>
+                <option value="Failure">Failure</option>
+                <option value="MedWaiver">Med Waiver</option>
+                <option value="DepOp">Dep/OP</option>
+                <option value="none">None</option>
+            </select>
+        </div>
+
+                <div class="form-group">
+            <label for="billetSubcategory">21.  Billet Subcategory</label>
+            <select id="billetSubcategory" required>
+                <option value="NA">NA</option>
+                <option value="Basic">BASIC</option>
+                <option value="Approved">APPROVED</option>
+                <option value="Screened">SCREENED</option>
+                <option value="indivAug">Probationary</option>
+                <option value="COAfloat">CO AFLOAT</option>
+                <option value="COAshore">CO ASHORE</option>
+                <option value="OIC">OIC</option>
+                <option value="seaComp">SEA COMP</option>
+                <option value="CRF">CRF</option>
+                <option value="canvasser">CANVASER</option>
+                <option value="resident">RESIDENT</option>
+                <option value="intern">INTERN</option>
+                <option value="instructor">INSTRUCTOR</option>
+                <option value="student">STUDENT</option>
+                <option value="resac1">RESAC1</option>
+                <option value="resac6">RESAC6</option>
+                <option value="special1">SPECIAL01</option>
+                <option value="special2">SPECIAL02</option>
+                <option value="special3">SPECIAL03</option>
+                <option value="special4">SPECIAL04</option>
+                <option value="special5">SPECIAL05</option>
+                <option value="SPECIAL06">SPECIAL06</option>
+                <option value="special07">SPECIAL07</option>
+                <option value="special08">SPECIAL08</option>
+                <option value="special09">SPECIAL09</option>
+                <option value="special10">SPECIAL10</option>
+                <option value="special11">SPECIAL11</option>
+                <option value="special12">SPECIAL12</option>
+                <option value="special13">SPECIAL13</option>
+                <option value="special14">SPECIAL14</option>
+                <option value="special15">SPECIAL15</option>
+                <option value="special16">SPECIAL16</option>
+                <option value="special17">SPECIAL17</option>
+                <option value="special18">SPECIAL18</option>
+                <option value="special19">SPECIAL19</option>
+                <option value="special20">SPECIAL20</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label for="reportingSenior">22. Reporting Senior (LAST, FI MI)</label>
+            <input type="text" id="reportingSenior" placeholder="Reporting Senior" required>
+        </div>
+
+        <div class="form-group">
+            <label for="grade">23. Grade</label>
+            <input type="text" id="grade" placeholder="Grade" required>
+        </div>
+
+        <div class="form-group">
+            <label for="desig">24. Desig</label>
+            <input type="text" id="desig" placeholder="Designator" required>
+        </div>
+
+        <div class="form-group">
+            <label for="title">25. Title</label>
+            <input type="text" id="title" placeholder="Title" required>
+        </div>        
+        
+        <div class="form-group">
+            <label for="title">26. UIC</label>
+            <input type="text" id="title" placeholder="Title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ssn">27.  SSN</label>
+            <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
+        </div>
+
+        <div class="section-title">Block 28: Command Employment and Command Achievements</div>
+            <div class="form-group textarea-group">
+                <label for="block28">Command Employment and Command Achievements</label>
+                <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
+        </div>
+
+        <div class="performance-section">
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>PERFORMANCE TRAITS</th>
+                        <th>PERFORMANCE GRADE</th>
+                        <th>PERFORMANCE COMMENTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="performance-trait-text">
+33. TECHNICAL MASTERY.
+- Technical expert in rating and community.
+- Uses technical knowledge and experience to produce well-trained teams able to execute the command missions with excellence.
+- Applies knowledge, skills, and abilities to meet any mission.
+                        </td>
+                        <td>
+                            <div class="performance-grade">
+                                <select id="technicalMasterGrade" name="technicalMasterGrade">
+                                    <option value="5.0">5.0 Greatly Exceeds Standards</option>
+                                    <option value="4.0">4.0 Above Standards</option>
+                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="2.0">2.0 Progressing</option>
+                                    <option value="1.0">1.0 Below Standards</option>
+                                </select>
+                                <div id="technicalMasterText">-Demonstrates thorough rating knowledge of all technical actions, duties and procedures.<br>                                    
+                                    -Tactical knowledge and skill in specialty equal to others of the same rate and experience.<br>                                    
+                                    -Competently performs routine and new tasks within rating
+                                </div>
+                                <div id="technicalMasterGradeScore" class="performance-grade-score">3.0</div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="performance-comments">
+                                <textarea id="technicalMasterComment1"></textarea>
+                                <textarea id="technicalMasterComment2"></textarea>
+                                <textarea id="technicalMasterComment3"></textarea>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
 
         <!-- Submit Button -->
         <button type="submit">Submit</button>
