@@ -5,16 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chief Eval Form</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; }
-        .form-container { width: 600px; padding: 20px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
-        h2 { text-align: center; margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; }
-        input, select, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
-        button { width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; cursor: pointer; }
-        button:hover { background-color: #0056b3; }
-        .section-title { font-weight: bold; margin-top: 20px; }
-        .ssn-mask { font-family: monospace; letter-spacing: 2px; }
-        .error { color: red; text-align: center; margin-top: 10px; }
+        /* Overall layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            width: 800px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            width: 40%;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            width: 55%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group input[type="text"].ssn-mask {
+            letter-spacing: 2px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Additional styling for mobile */
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+
+            .form-group label {
+                width: 100%;
+            }
+
+            .form-group input, .form-group select {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -23,66 +112,90 @@
     <h2>Chief Eval Form</h2>
     <form id="chiefEvalForm">
 
-        <!-- Name -->
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Full Name" required>
+        <!-- Personal Info Section -->
+        <div class="section-title">Personal Information</div>
 
-        <!-- Rating -->
-        <label for="rating">Rating</label>
-        <input type="text" id="rating" placeholder="Rating" required>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Full Name" required>
+        </div>
 
-        <!-- Designation -->
-        <label for="designation">Designation</label>
-        <input type="text" id="designation" placeholder="Designation" required>
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <input type="text" id="rating" placeholder="Rating" required>
+        </div>
 
-        <!-- SSN -->
-        <label for="ssn">SSN</label>
-        <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required pattern="\d{3}-\d{2}-\d{4}" maxlength="11">
+        <div class="form-group">
+            <label for="designation">Designation</label>
+            <input type="text" id="designation" placeholder="Designation" required>
+        </div>
 
-        <!-- UIC -->
-        <label for="uic">UIC</label>
-        <input type="text" id="uic" placeholder="UIC" required>
+        <div class="form-group">
+            <label for="ssn">SSN</label>
+            <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
+        </div>
 
-        <!-- Ship/Station -->
-        <label for="shipStation">Ship/Station</label>
-        <input type="text" id="shipStation" placeholder="Ship/Station" required>
+        <!-- Service Information Section -->
+        <div class="section-title">Service Information</div>
 
-        <!-- Promotion Status -->
-        <label for="promotionStatus">Promotion Status</label>
-        <select id="promotionStatus" required>
-            <option value="Promoted">Promoted</option>
-            <option value="Pending">Pending</option>
-            <option value="Not Promoted">Not Promoted</option>
-        </select>
+        <div class="form-group">
+            <label for="uic">UIC</label>
+            <input type="text" id="uic" placeholder="UIC" required>
+        </div>
 
-        <!-- Date Reported -->
-        <label for="dateReported">Date Reported</label>
-        <input type="date" id="dateReported" required>
+        <div class="form-group">
+            <label for="shipStation">Ship/Station</label>
+            <input type="text" id="shipStation" placeholder="Ship/Station" required>
+        </div>
 
-        <!-- Physical Readiness -->
-        <label for="physicalReadiness">Physical Readiness</label>
-        <input type="text" id="physicalReadiness" placeholder="Physical Readiness" required>
+        <div class="form-group">
+            <label for="promotionStatus">Promotion Status</label>
+            <select id="promotionStatus" required>
+                <option value="Promoted">Promoted</option>
+                <option value="Pending">Pending</option>
+                <option value="Not Promoted">Not Promoted</option>
+            </select>
+        </div>
 
-        <!-- Billet Subcategory -->
-        <label for="billetSubcategory">Billet Subcategory</label>
-        <input type="text" id="billetSubcategory" placeholder="Billet Subcategory" required>
+        <div class="form-group">
+            <label for="dateReported">Date Reported</label>
+            <input type="date" id="dateReported" required>
+        </div>
 
-        <!-- Reporting Senior -->
-        <label for="reportingSenior">Reporting Senior</label>
-        <input type="text" id="reportingSenior" placeholder="Reporting Senior" required>
+        <!-- Evaluation Information Section -->
+        <div class="section-title">Evaluation Information</div>
 
-        <!-- Grade -->
-        <label for="grade">Grade</label>
-        <input type="text" id="grade" placeholder="Grade" required>
+        <div class="form-group">
+            <label for="physicalReadiness">Physical Readiness</label>
+            <input type="text" id="physicalReadiness" placeholder="Physical Readiness" required>
+        </div>
 
-        <!-- Designator -->
-        <label for="desig">Designator</label>
-        <input type="text" id="desig" placeholder="Designator" required>
+        <div class="form-group">
+            <label for="billetSubcategory">Billet Subcategory</label>
+            <input type="text" id="billetSubcategory" placeholder="Billet Subcategory" required>
+        </div>
 
-        <!-- Title -->
-        <label for="title">Title</label>
-        <input type="text" id="title" placeholder="Title" required>
+        <div class="form-group">
+            <label for="reportingSenior">Reporting Senior</label>
+            <input type="text" id="reportingSenior" placeholder="Reporting Senior" required>
+        </div>
 
+        <div class="form-group">
+            <label for="grade">Grade</label>
+            <input type="text" id="grade" placeholder="Grade" required>
+        </div>
+
+        <div class="form-group">
+            <label for="desig">Designator</label>
+            <input type="text" id="desig" placeholder="Designator" required>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Title" required>
+        </div>
+
+        <!-- Submit Button -->
         <button type="submit">Submit</button>
     </form>
     <div class="error" id="errorMessage"></div>
