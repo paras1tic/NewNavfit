@@ -13,8 +13,9 @@
             background-color: #f4f4f4;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px 0;
         }
 
         .form-container {
@@ -314,7 +315,7 @@
             <label for="reportperiod">Period of Report</label>
             <div class="checkbox-group">
             <input type="date" id="fromdate" required>14. From
-            <input type="date" id="fromdate" required>15. To
+            <input type="date" id="todate" required>15. To
             </div>
         </div>
 
@@ -336,7 +337,7 @@
 
         <div class="form-group">
             <label for="physicalReadiness">20. Physical Readiness</label>
-            <select id="pysicalReadiness" required>
+            <select id="physicalReadiness" required>
                 <option value="Maximum">Maximum</option>
                 <option value="Good">Good</option>
                 <option value="Satisfactory">Satisfactory</option>
@@ -355,7 +356,7 @@
                 <option value="Basic">BASIC</option>
                 <option value="Approved">APPROVED</option>
                 <option value="Screened">SCREENED</option>
-                <option value="indivAug">Probationary</option>
+                <option value="indivAug">INDIV AUG</option>
                 <option value="COAfloat">CO AFLOAT</option>
                 <option value="COAshore">CO ASHORE</option>
                 <option value="OIC">OIC</option>
@@ -373,7 +374,7 @@
                 <option value="special3">SPECIAL03</option>
                 <option value="special4">SPECIAL04</option>
                 <option value="special5">SPECIAL05</option>
-                <option value="SPECIAL06">SPECIAL06</option>
+                <option value="special06">SPECIAL06</option>
                 <option value="special07">SPECIAL07</option>
                 <option value="special08">SPECIAL08</option>
                 <option value="special09">SPECIAL09</option>
@@ -413,13 +414,13 @@
         </div>        
         
         <div class="form-group">
-            <label for="title">26. UIC</label>
-            <input type="text" id="title" placeholder="Title" required>
+            <label for="rsUic">26. UIC</label>
+            <input type="text" id="rsUic" placeholder="UIC" required>
         </div>
 
         <div class="form-group">
-            <label for="ssn">27.  SSN</label>
-            <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
+            <label for="rsSsn">27.  SSN</label>
+            <input type="text" id="rsSsn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
         </div>
 
         <div class="section-title">Block 28: Command Employment and Command Achievements</div>
