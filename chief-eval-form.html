@@ -449,9 +449,11 @@
                         <td>
                             <div class="performance-grade">
                                 <select id="technicalMasterGrade" name="technicalMasterGrade" onchange="updateTechnicalMasterText()">
+                                    <option value="" selected>Select Performance Grade</option>
+                                    <option value="NOB">NOB</option>
                                     <option value="5.0">5.0 Greatly Exceeds Standards</option>
                                     <option value="4.0">4.0 Above Standards</option>
-                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="3.0">3.0 Meets Standards</option>
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
@@ -481,10 +483,12 @@
                         </td>
                         <td>
                             <div class="performance-grade">
-                                <select id="institutionalExpertiseGrade" name="institutionalExpertiseGrade">
+                                <select id="institutionalExpertiseGrade" name="institutionalExpertiseGrade" onchange="updateInstitutionalExpertiseText()">
+                                    <option value="" selected>Select Performance Grade</option>
+                                    <option value="NOB">NOB</option>
                                     <option value="5.0">5.0 Greatly Exceeds Standards</option>
                                     <option value="4.0">4.0 Above Standards</option>
-                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="3.0">3.0 Meets Standards</option>
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
@@ -514,10 +518,12 @@
                         </td>
                         <td>
                             <div class="performance-grade">
-                                <select id="professionalismGrade" name="professionalismGrade">
+                                <select id="professionalismGrade" name="professionalismGrade" onchange="updateProfessionalismText()">
+                                    <option value="" selected>Select Performance Grade</option>
+                                    <option value="NOB">NOB</option>
                                     <option value="5.0">5.0 Greatly Exceeds Standards</option>
                                     <option value="4.0">4.0 Above Standards</option>
-                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="3.0">3.0 Meets Standards</option>
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
@@ -547,10 +553,12 @@
                         </td>
                         <td>
                             <div class="performance-grade">
-                                <select id="integrityGrade" name="integrityGrade">
+                                <select id="integrityGrade" name="integrityGrade" onchange="updateIntegrityText()">
+                                    <option value="" selected>Select Performance Grade</option>
+                                    <option value="NOB">NOB</option>
                                     <option value="5.0">5.0 Greatly Exceeds Standards</option>
                                     <option value="4.0">4.0 Above Standards</option>
-                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="3.0">3.0 Meets Standards</option>
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
@@ -580,10 +588,12 @@
                         </td>
                         <td>
                             <div class="performance-grade">
-                                <select id="accountabilityGrade" name="accountabilityGrade">
+                                <select id="accountabilityGrade" name="accountabilityGrade" onchange="updateAccountabilityText()">
+                                    <option value="" selected>Select Performance Grade</option>
+                                    <option value="NOB">NOB</option>
                                     <option value="5.0">5.0 Greatly Exceeds Standards</option>
                                     <option value="4.0">4.0 Above Standards</option>
-                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="3.0">3.0 Meets Standards</option>
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
@@ -613,10 +623,12 @@
                         </td>
                         <td>
                             <div class="performance-grade">
-                                <select id="deckplateLeadershipGrade" name="deckplateLeadershipGrade">
+                                <select id="deckplateLeadershipGrade" name="deckplateLeadershipGrade" onchange="updateDeckplateLeadershipText()">
+                                    <option value="" selected>Select Performance Grade</option>
+                                    <option value="NOB">NOB</option>
                                     <option value="5.0">5.0 Greatly Exceeds Standards</option>
                                     <option value="4.0">4.0 Above Standards</option>
-                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="3.0">3.0 Meets Standards</option>
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
@@ -646,10 +658,12 @@
                         </td>
                         <td>
                             <div class="performance-grade">
-                                <select id="teamEffectivenessGrade" name="teamEffectivenessGrade">
+                                <select id="teamEffectivenessGrade" name="teamEffectivenessGrade" onchange="updateTeamEffectivenessText()">
+                                    <option value="" selected>Select Performance Grade</option>
+                                    <option value="NOB">NOB</option>
                                     <option value="5.0">5.0 Greatly Exceeds Standards</option>
                                     <option value="4.0">4.0 Above Standards</option>
-                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="3.0">3.0 Meets Standards</option>
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
@@ -704,6 +718,8 @@
         const scoreDiv = document.getElementById('technicalMasterGradeScore');
 
         const gradeTexts = {
+            '': '',
+            'NOB': '',
             '1.0': '-Lacks basic rating knowledge<br>-Unaware and unwilling to learn details of technical rating proficiencies<br>-Lacks basic professional knowledge to perform effectively<br>-Cannot apply basic skills<br>-Tactical knowledge and skill in specialty are below standards',
             '2.0': '-Limited rating knowledge<br>-Learning technical in-rate proficiencies<br>-Only applies basic skills, difficulty with performing daily tasks consistently',
             '3.0': '-Demonstrates thorough rating knowledge of all technical actions, duties and procedures<br>-Tactical knowledge and skill in specialty equal to others of the same rate and experience<br>-Competently performs routine and new tasks within rating',
@@ -711,8 +727,123 @@
             '5.0': '-Recognized expert, sought after to solve difficult problems, executes innovative ideas<br>-Detailed, current knowledge and strong advocate for all technical programs and policies<br>-Uses technical knowledge and experience to produce a well-trained enlisted and officer team'
         };
 
-        textDiv.innerHTML = gradeTexts[grade];
-        scoreDiv.textContent = grade;
+        textDiv.innerHTML = gradeTexts[grade] || '';
+        scoreDiv.textContent = grade || '';
+    }
+
+    // Update functions for other traits
+    function updateInstitutionalExpertiseText() {
+        const grade = document.getElementById('institutionalExpertiseGrade').value;
+        const textDiv = document.getElementById('institutionalExpertiseText');
+        const scoreDiv = document.getElementById('institutionalExpertiseGradeScore');
+
+        const gradeTexts = {
+            '': '',
+            'NOB': '',
+            '1.0': '-Lacks basic Navy knowledge<br>-Unaware and unwilling to learn details of Navy programs and policies<br>-Cannot apply basic skills<br>-Unable to recognize and engage when required to ensure mission success<br>-Ignores Navy traditions<br>-No grasp of naval history',
+            '2.0': '-Limited Navy knowledge<br>-Learning Navy programs and policies<br>-Only applies basic skills<br>-Does not regularly engage when required to ensure mission success<br>-Lacks full understanding and knowledge of naval customs and traditions',
+            '3.0': '-Demonstrates thorough knowledge of Navy organization and structure<br>-Able to resolve unit technical issues<br>-Demonstrates knowledge of Navy programs and policies<br>-Integrates naval traditions, customs, and practices into decision making processes, training, and daily leadership',
+            '4.0': '-Demonstrates comprehensive institutional knowledge<br>-Tactical unit level knowledge above peers<br>-Ability to plan and execute command mission requirements<br>-Recognizes and engages at the point of friction to ensure mission success<br>-Consistently uses naval history to demonstrate who we are as a service',
+            '5.0': '-Navy expert, complete understanding of purpose within organization and structure<br>-Exceptionally skilled, complete accuracy and precision in all technical actions, duties, and procedures<br>-Understands how unit mission and the Navy mission support the National Military Strategy<br>-Thorough understanding and proactive integration of customs and traditions'
+        };
+
+        textDiv.innerHTML = gradeTexts[grade] || '';
+        scoreDiv.textContent = grade || '';
+    }
+
+    function updateProfessionalismText() {
+        const grade = document.getElementById('professionalismGrade').value;
+        const textDiv = document.getElementById('professionalismText');
+        const scoreDiv = document.getElementById('professionalismGradeScore');
+
+        const gradeTexts = {
+            '': '',
+            'NOB': '',
+            '1.0': '-Does not effectively utilize the Chief\'s Mess to plan and solve challenges<br>-Improvement of peers, subordinates, and self is not a priority<br>-Unable to meet one or more physical readiness standards<br>-Consistently unsatisfactory appearance, demeanor, or conduct<br>-Fails to uphold, and enforce standards',
+            '2.0': '-Infrequently upholds and enforces standards<br>-Learning to effectively utilize the Chief\'s Mess to plan and solve challenges<br>-Improvement of peers, subordinates, and self is a low priority<br>-Struggled to meet one or more physical readiness standards',
+            '3.0': '-Actively teaches, upholds, and enforces standards<br>-Committed to professional education and training for self and subordinates<br>-Complies with Physical Readiness Program<br>-Excellent personal appearance and representation of the Navy',
+            '4.0': '-Understands and promotes the attributes and behaviors that define the Profession of Arms<br>-Conduct directly aligns with the Navy Core Values; actively teaches, upholds, and enforces standards<br>-Measured by the success of his/her Sailors and is the role model of good order and discipline',
+            '5.0': '-Proactively teaches, upholds, and enforces standards throughout the command<br>-Fosters an environment of improvement, education, and professional development<br>-A leader in physical readiness<br>-Exemplary personal appearance and representative of the Navy'
+        };
+
+        textDiv.innerHTML = gradeTexts[grade] || '';
+        scoreDiv.textContent = grade || '';
+    }
+
+    function updateIntegrityText() {
+        const grade = document.getElementById('integrityGrade').value;
+        const textDiv = document.getElementById('integrityText');
+        const scoreDiv = document.getElementById('integrityGradeScore');
+
+        const gradeTexts = {
+            '': '',
+            'NOB': '',
+            '1.0': '-Does not demonstrate loyalty to mission, seniors, peers, or subordinates<br>-Not concerned about Sailor success<br>-Allows command challenges to impact Sailor readiness<br>-Does not set a positive tone or build trust with personnel',
+            '2.0': '-Does not consistently demonstrate loyalty to mission, seniors, peers, or subordinates<br>-Does not prioritize Sailor success<br>-Allows command challenges to impact Sailor and individual readiness; has difficulty building trust',
+            '3.0': '-Loyal to mission, seniors, peers, and subordinates; moral courage to raise issues and support the outcome<br>-Effective mentor: actions adequately encourage and support subordinates personal/professional growth<br>-Routinely solves command challenges before they significantly impact sailors',
+            '4.0': '-Abides by an uncompromising code of integrity, takes full responsibility for his/her actions and keeps his/her word<br>-Sets a positive tone, unifies the Mess<br>-Builds trust within the command to create esprit de corps and winning teams',
+            '5.0': '-Loyal to mission, seniors, peers and subordinates; moral courage to raise issues and strength to fully support the outcome<br>-Exemplary mentor: creates environment with outstanding professional growth opportunities for each Sailor<br>-Proactively identifies and solves command challenges'
+        };
+
+        textDiv.innerHTML = gradeTexts[grade] || '';
+        scoreDiv.textContent = grade || '';
+    }
+
+    function updateAccountabilityText() {
+        const grade = document.getElementById('accountabilityGrade').value;
+        const textDiv = document.getElementById('accountabilityText');
+        const scoreDiv = document.getElementById('accountabilityGradeScore');
+
+        const gradeTexts = {
+            '': '',
+            'NOB': '',
+            '1.0': '-Demonstrates behavior that stifles command or work center success<br>-No personal integrity and does not take responsibility for actions or decisions<br>-Fails to live up to Navy Core Values: Honor, Courage, and Commitment',
+            '2.0': '-Ignores destructive behavior; fails to correct obvious problems that lead to it<br>-Lacks personal integrity and does not actively take responsibility for actions or decisions<br>-Inconsistently lives up to Navy Core Values: Honor, Courage, and Commitment',
+            '3.0': '-Values human differences, leverages them to foster an atmosphere conducive to personal and team success<br>-Trustworthy, ethical, and honest<br>-Lives up to Navy Core Values: Honor, Courage, and Commitment',
+            '4.0': '-Clearly defines the problem and is accountable for the outcomes<br>-Continuously self-assesses with an unbiased, learning mindset to provide well-founded solutions<br>-Provides forceful backup and takes prompt action to learn from mistakes<br>-Holds self and peers Accountable',
+            '5.0': '-Strengthens command through fair, character-based leadership<br>-Uncompromising code of integrity<br>-Exemplifies Navy Core Values: Honor, Courage, and Commitment'
+        };
+
+        textDiv.innerHTML = gradeTexts[grade] || '';
+        scoreDiv.textContent = grade || '';
+    }
+
+    function updateDeckplateLeadershipText() {
+        const grade = document.getElementById('deckplateLeadershipGrade').value;
+        const textDiv = document.getElementById('deckplateLeadershipText');
+        const scoreDiv = document.getElementById('deckplateLeadershipGradeScore');
+
+        const gradeTexts = {
+            '': '',
+            'NOB': '',
+            '1.0': '-Stifles information exchange, idea sharing, and diversity of opinion<br>-Does not take advantage of the Chief\'s Mess to discuss, plan, or act on command issues<br>-Poor communicator; actions negatively impact mission goals and readiness',
+            '2.0': '-Minimal information exchange, idea sharing, and diversity of opinion<br>-Minimal use of the Chief\'s Mess to discuss, plan, or act on command issues<br>-Poor communicator; actions do not provide positive impact on mission goals and readiness',
+            '3.0': '-Facilitates information exchange, idea sharing, and diversity of opinion<br>-Uses Chief\'s Mess as an open forum to discuss, plan, and act on command issues<br>-Effectively communicates and listens to subordinates, peers, and seniors',
+            '4.0': '-Visible on the deck-plate; sets the tone for all Sailors<br>-Understands personnel programs and policies; proactive in understanding his/her Sailors and drives them to be better<br>-Enables Sailors to be individual war fighters and productive on credible combat teams',
+            '5.0': '-Actively facilitates information exchange, idea sharing, and diversity of opinion<br>-Actively uses Chief\'s Mess as an open forum to discuss, plan, and act on command issues<br>-Energizes communication flow up and down the chain of command'
+        };
+
+        textDiv.innerHTML = gradeTexts[grade] || '';
+        scoreDiv.textContent = grade || '';
+    }
+
+    function updateTeamEffectivenessText() {
+        const grade = document.getElementById('teamEffectivenessGrade').value;
+        const textDiv = document.getElementById('teamEffectivenessText');
+        const scoreDiv = document.getElementById('teamEffectivenessGradeScore');
+
+        const gradeTexts = {
+            '': '',
+            'NOB': '',
+            '1.0': '-Creates conflict, unwilling to work with others, puts self above the team<br>-Ignores connectedness, does not support a teamwork environment<br>-Overcome by challenges and delivers substandard outcomes',
+            '2.0': '-Avoids conflict, hesitant to work with others, little concern with team goals<br>-Minimal connectedness, lack of support in a teamwork environment<br>-Overcome by challenges and delivers substandard outcomes',
+            '3.0': '-Participates in command planning and problem solving through the Chief\'s Mess<br>-Reinforces others\' efforts and meets personal commitments to team',
+            '4.0': '-Proactive leader invested in all Sailors<br>-Understands the positive impact of empowerment at every level<br>-Cultivates seasoned teams that anticipate problems, overcome challenges, and deliver best outcomes',
+            '5.0': '-Actively leads command activities, solves command challenges, and drives mission accomplishment through the Chief\'s Mess<br>-Team builder, inspires cooperation and focus on mission accomplishment: leverages talents of all Sailors'
+        };
+
+        textDiv.innerHTML = gradeTexts[grade] || '';
+        scoreDiv.textContent = grade || '';
     }
 </script>
 
