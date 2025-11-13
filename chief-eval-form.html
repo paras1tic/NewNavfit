@@ -426,7 +426,7 @@
         <div class="section-title">Block 28: Command Employment and Command Achievements</div>
             <div class="form-group textarea-group">
                 <label for="block28">Command Employment and Command Achievements</label>
-                <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
+                <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required style="resize: none;"></textarea>
         </div>
 
         <div class="performance-section">
@@ -448,15 +448,15 @@
                         </td>
                         <td>
                             <div class="performance-grade">
-                                <select id="technicalMasterGrade" name="technicalMasterGrade">
+                                <select id="technicalMasterGrade" name="technicalMasterGrade" onchange="updateTechnicalMasterText()">
                                     <option value="5.0">5.0 Greatly Exceeds Standards</option>
                                     <option value="4.0">4.0 Above Standards</option>
                                     <option value="3.0" selected>3.0 Meets Standards</option>
                                     <option value="2.0">2.0 Progressing</option>
                                     <option value="1.0">1.0 Below Standards</option>
                                 </select>
-                                <div id="technicalMasterText">-Demonstrates thorough rating knowledge of all technical actions, duties and procedures.<br>                                    
-                                    -Tactical knowledge and skill in specialty equal to others of the same rate and experience.<br>                                    
+                                <div id="technicalMasterText">-Demonstrates thorough rating knowledge of all technical actions, duties and procedures<br>
+                                    -Tactical knowledge and skill in specialty equal to others of the same rate and experience<br>
                                     -Competently performs routine and new tasks within rating
                                 </div>
                                 <div id="technicalMasterGradeScore" class="performance-grade-score">3.0</div>
@@ -468,6 +468,204 @@
                                 <textarea id="technicalMasterComment1"></textarea>
                                 <textarea id="technicalMasterComment2"></textarea>
                                 <textarea id="technicalMasterComment3"></textarea>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="performance-trait-text">
+34. INSTITUTIONAL EXPERTISE.
+- Understands and applies Navy policies, procedures, and regulations.
+- Demonstrates knowledge of organizational structure and command relationships.
+- Effectively navigates institutional processes to accomplish mission objectives.
+                        </td>
+                        <td>
+                            <div class="performance-grade">
+                                <select id="institutionalExpertiseGrade" name="institutionalExpertiseGrade">
+                                    <option value="5.0">5.0 Greatly Exceeds Standards</option>
+                                    <option value="4.0">4.0 Above Standards</option>
+                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="2.0">2.0 Progressing</option>
+                                    <option value="1.0">1.0 Below Standards</option>
+                                </select>
+                                <div id="institutionalExpertiseText">-Demonstrates sound knowledge of Navy policies, procedures, and regulations.<br>
+                                    -Understands organizational structure and effectively works within it.<br>
+                                    -Competently navigates institutional processes to support mission
+                                </div>
+                                <div id="institutionalExpertiseGradeScore" class="performance-grade-score">3.0</div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="performance-comments">
+                                <textarea id="institutionalExpertiseComment1"></textarea>
+                                <textarea id="institutionalExpertiseComment2"></textarea>
+                                <textarea id="institutionalExpertiseComment3"></textarea>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="performance-trait-text">
+35. PROFESSIONALISM.
+- Demonstrates military bearing and professional conduct at all times.
+- Maintains high standards of personal appearance and military deportment.
+- Sets the example for others to follow in behavior, work ethic, and commitment to Navy values.
+                        </td>
+                        <td>
+                            <div class="performance-grade">
+                                <select id="professionalismGrade" name="professionalismGrade">
+                                    <option value="5.0">5.0 Greatly Exceeds Standards</option>
+                                    <option value="4.0">4.0 Above Standards</option>
+                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="2.0">2.0 Progressing</option>
+                                    <option value="1.0">1.0 Below Standards</option>
+                                </select>
+                                <div id="professionalismText">-Consistently displays military bearing and professional conduct.<br>
+                                    -Maintains standards of appearance and deportment appropriate for rank.<br>
+                                    -Demonstrates commitment to Navy core values in daily actions
+                                </div>
+                                <div id="professionalismGradeScore" class="performance-grade-score">3.0</div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="performance-comments">
+                                <textarea id="professionalismComment1"></textarea>
+                                <textarea id="professionalismComment2"></textarea>
+                                <textarea id="professionalismComment3"></textarea>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="performance-trait-text">
+36. INTEGRITY.
+- Demonstrates honesty, moral courage, and ethical behavior in all actions.
+- Takes responsibility for decisions and actions without making excuses.
+- Earns trust and confidence through consistent adherence to Navy core values.
+                        </td>
+                        <td>
+                            <div class="performance-grade">
+                                <select id="integrityGrade" name="integrityGrade">
+                                    <option value="5.0">5.0 Greatly Exceeds Standards</option>
+                                    <option value="4.0">4.0 Above Standards</option>
+                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="2.0">2.0 Progressing</option>
+                                    <option value="1.0">1.0 Below Standards</option>
+                                </select>
+                                <div id="integrityText">-Consistently demonstrates honesty and ethical behavior in all situations.<br>
+                                    -Takes responsibility for own actions and decisions.<br>
+                                    -Maintains trust through adherence to Navy core values
+                                </div>
+                                <div id="integrityGradeScore" class="performance-grade-score">3.0</div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="performance-comments">
+                                <textarea id="integrityComment1"></textarea>
+                                <textarea id="integrityComment2"></textarea>
+                                <textarea id="integrityComment3"></textarea>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="performance-trait-text">
+37. ACCOUNTABILITY.
+- Accepts responsibility for mission accomplishment and welfare of subordinates.
+- Holds self and others to high standards of performance and conduct.
+- Takes ownership of results and follows through on commitments.
+                        </td>
+                        <td>
+                            <div class="performance-grade">
+                                <select id="accountabilityGrade" name="accountabilityGrade">
+                                    <option value="5.0">5.0 Greatly Exceeds Standards</option>
+                                    <option value="4.0">4.0 Above Standards</option>
+                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="2.0">2.0 Progressing</option>
+                                    <option value="1.0">1.0 Below Standards</option>
+                                </select>
+                                <div id="accountabilityText">-Accepts responsibility for mission and personnel welfare.<br>
+                                    -Maintains appropriate standards of performance and conduct.<br>
+                                    -Takes ownership of results and fulfills commitments
+                                </div>
+                                <div id="accountabilityGradeScore" class="performance-grade-score">3.0</div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="performance-comments">
+                                <textarea id="accountabilityComment1"></textarea>
+                                <textarea id="accountabilityComment2"></textarea>
+                                <textarea id="accountabilityComment3"></textarea>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="performance-trait-text">
+38. DECKPLATE LEADERSHIP.
+- Leads by example and demonstrates technical and tactical proficiency.
+- Mentors and develops subordinates to maximize their potential.
+- Builds cohesive teams and maintains positive morale in all conditions.
+                        </td>
+                        <td>
+                            <div class="performance-grade">
+                                <select id="deckplateLeadershipGrade" name="deckplateLeadershipGrade">
+                                    <option value="5.0">5.0 Greatly Exceeds Standards</option>
+                                    <option value="4.0">4.0 Above Standards</option>
+                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="2.0">2.0 Progressing</option>
+                                    <option value="1.0">1.0 Below Standards</option>
+                                </select>
+                                <div id="deckplateLeadershipText">-Leads by example with technical and tactical proficiency.<br>
+                                    -Provides effective mentorship and develops subordinates appropriately.<br>
+                                    -Builds cohesive teams and maintains positive morale
+                                </div>
+                                <div id="deckplateLeadershipGradeScore" class="performance-grade-score">3.0</div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="performance-comments">
+                                <textarea id="deckplateLeadershipComment1"></textarea>
+                                <textarea id="deckplateLeadershipComment2"></textarea>
+                                <textarea id="deckplateLeadershipComment3"></textarea>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="performance-trait-text">
+39. TEAM EFFECTIVENESS.
+- Fosters collaboration and teamwork to accomplish mission objectives.
+- Communicates effectively across all levels of the organization.
+- Resolves conflicts constructively and promotes unity of effort.
+                        </td>
+                        <td>
+                            <div class="performance-grade">
+                                <select id="teamEffectivenessGrade" name="teamEffectivenessGrade">
+                                    <option value="5.0">5.0 Greatly Exceeds Standards</option>
+                                    <option value="4.0">4.0 Above Standards</option>
+                                    <option value="3.0" selected>3.0 Meets Standards</option>
+                                    <option value="2.0">2.0 Progressing</option>
+                                    <option value="1.0">1.0 Below Standards</option>
+                                </select>
+                                <div id="teamEffectivenessText">-Fosters collaboration and teamwork to accomplish objectives.<br>
+                                    -Communicates effectively across organizational levels.<br>
+                                    -Resolves conflicts constructively and promotes unity
+                                </div>
+                                <div id="teamEffectivenessGradeScore" class="performance-grade-score">3.0</div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="performance-comments">
+                                <textarea id="teamEffectivenessComment1"></textarea>
+                                <textarea id="teamEffectivenessComment2"></textarea>
+                                <textarea id="teamEffectivenessComment3"></textarea>
 
                             </div>
                         </td>
@@ -497,6 +695,24 @@
                 item.checked = false;
             }
         });
+    }
+
+    // Update Technical Mastery text based on selected grade
+    function updateTechnicalMasterText() {
+        const grade = document.getElementById('technicalMasterGrade').value;
+        const textDiv = document.getElementById('technicalMasterText');
+        const scoreDiv = document.getElementById('technicalMasterGradeScore');
+
+        const gradeTexts = {
+            '1.0': '-Lacks basic rating knowledge<br>-Unaware and unwilling to learn details of technical rating proficiencies<br>-Lacks basic professional knowledge to perform effectively<br>-Cannot apply basic skills<br>-Tactical knowledge and skill in specialty are below standards',
+            '2.0': '-Limited rating knowledge<br>-Learning technical in-rate proficiencies<br>-Only applies basic skills, difficulty with performing daily tasks consistently',
+            '3.0': '-Demonstrates thorough rating knowledge of all technical actions, duties and procedures<br>-Tactical knowledge and skill in specialty equal to others of the same rate and experience<br>-Competently performs routine and new tasks within rating',
+            '4.0': '-Demonstrates comprehensive rating knowledge<br>-Tactical rating knowledge above peers<br>-Ability to thoroughly plan and execute routine and new tasks<br>-Mastery of skills and ability to apply them day-to-day',
+            '5.0': '-Recognized expert, sought after to solve difficult problems, executes innovative ideas<br>-Detailed, current knowledge and strong advocate for all technical programs and policies<br>-Uses technical knowledge and experience to produce a well-trained enlisted and officer team'
+        };
+
+        textDiv.innerHTML = gradeTexts[grade];
+        scoreDiv.textContent = grade;
     }
 </script>
 
