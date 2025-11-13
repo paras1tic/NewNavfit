@@ -5,156 +5,288 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chief Eval Form</title>
     <style>
-        /* Overall layout */
+        :root {
+            --border-weight: 1.5px;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            padding: 30px 0;
+            background-color: #e4e4e4;
+            color: #000;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 20px 0;
         }
 
         .form-container {
-            width: 1100px;
-            padding: 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
+            width: 100%;
+            max-width: 1050px;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 0;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
         }
 
-        h2 {
+        .form-header {
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            font-weight: bold;
+            padding: 18px 30px 12px;
+            border-bottom: 2px solid #000;
         }
 
-        /* Section Styling */
-        .section-title {
-            font-weight: bold;
+        .form-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .form-subtitle {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-top: 4px;
+        }
+
+        form#chiefEvalForm {
+            padding: 25px 35px 35px;
+        }
+
+        .page-heading {
+            margin: 35px 0 15px;
+            text-align: center;
+            font-weight: 700;
             font-size: 18px;
-            margin-top: 20px;
-            margin-bottom: 15px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: 14px;
+            margin: 20px 0 8px;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .top-blocks,
+        .service-blocks,
+        .occasion-period-section,
+        .three-column-section,
+        .block-49-row,
+        .block-50-52-row {
+            border: var(--border-weight) solid #000;
+        }
+
+        .top-blocks,
+        .service-blocks {
+            display: grid;
+            gap: 0;
+            margin-bottom: 0;
+        }
+
+        .top-blocks {
+            grid-template-columns: 2.5fr repeat(3, 1fr);
+        }
+
+        .service-blocks {
+            grid-template-columns: 2fr repeat(4, 1fr);
+            border-top: 0;
+        }
+
+        .mid-blocks {
+            display: grid;
+            grid-template-columns: 1.1fr repeat(3, 0.9fr) 1.3fr 1.7fr;
+            border: var(--border-weight) solid #000;
+            border-top: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .mid-blocks .form-group {
+            margin: 0;
+            padding: 12px 15px;
+            min-height: 90px;
+            justify-content: center;
+            border-right: var(--border-weight) solid #000;
+        }
+
+        .mid-blocks .form-group:last-child {
+            border-right: none;
+        }
+
+        .top-blocks .form-group,
+        .service-blocks .form-group {
+            margin: 0;
+            padding: 12px 15px;
+            border-right: var(--border-weight) solid #000;
+            min-height: 90px;
+        }
+
+        .top-blocks .form-group:last-child,
+        .service-blocks .form-group:last-child {
+            border-right: none;
+        }
+
+        .occasion-period-section {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            border-top: 0;
+            margin-bottom: 0;
+        }
+
+        .block-cell {
+            padding: 12px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .block-cell label {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            word-break: break-word;
+        }
+
+        .checkbox-inline-cell {
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .checkbox-inline-cell label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+
+        .physical-readiness-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .physical-month-picker {
+            position: relative;
+            min-width: 90px;
+            display: inline-flex;
+        }
+
+        .physical-month-picker input[type="month"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 2;
+            pointer-events: auto;
+        }
+
+        .month-display {
+            font-weight: 700;
+            font-size: 13px;
+            padding: 6px 10px;
+            border: 1px solid #000;
+            min-width: 70px;
+            text-align: center;
+            pointer-events: none;
         }
 
         .form-group {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 6px;
             margin-bottom: 15px;
         }
 
-        /* First four blocks in a two-column grid */
-        .top-blocks {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Two columns */
-            gap: 20px; /* Add some space between columns */
-            margin-bottom: 20px; /* Space below this block */
-        }
-
         .form-group label {
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
-        .form-group input, .form-group select {
-            padding: 8px;
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 6px 8px;
             font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            border: 1px solid #000;
+            border-radius: 0;
+            background-color: #fff;
         }
 
         .form-group textarea {
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
             resize: vertical;
-            width: 100%;
-        }
-
-        .form-group.textarea-group {
-            flex-direction: column;
-            align-items: flex-start;
         }
 
         .form-group.textarea-group label {
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .form-group input[type="text"].ssn-mask {
             letter-spacing: 2px;
         }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .error {
-            color: red;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        /* Additional styling for mobile */
-        @media (max-width: 768px) {
-            .form-container {
-                width: 90%;
-            }
-
-            /* Stack the input fields vertically on mobile */
-            .form-group {
-                flex-direction: column;
-            }
-
-            .form-group label {
-                width: 100%;
-            }
-
-            .form-group input, .form-group select {
-                width: 100%;
-            }
-
-            /* Ensure the top blocks are stacked on mobile */
-            .top-blocks {
-                grid-template-columns: 1fr; /* Stack vertically on mobile */
-                gap: 10px;
-            }
-        }
-
-        /* Styling for the checkbox group */
         .checkbox-group {
-            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .checkbox-group.checkbox-inline {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 14px;
         }
 
         .checkbox-group label {
-            display: inline-block;
-            margin-right: 20px;
-            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
         }
 
         .checkbox-group input {
-            margin-right: 5px;
+            width: 16px;
+            height: 16px;
         }
 
-        /* Performance block styling */
+        .service-blocks .checkbox-group {
+            margin-top: 0;
+        }
+
+        .ssn-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .ssn-wrapper input {
+            flex: 1;
+            padding-right: 45px;
+        }
+
+        .ssn-toggle {
+            position: absolute;
+            right: 10px;
+            bottom: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            color: #1f1f1f;
+        }
+
         .performance-section {
-            margin-top: 30px;
+            margin-top: 15px;
         }
 
         .performance-table {
@@ -165,47 +297,47 @@
 
         .performance-table th,
         .performance-table td {
-            border: 1px solid #000;
-            padding: 12px;
+            border: var(--border-weight) solid #000;
+            padding: 10px;
             vertical-align: top;
         }
 
         .performance-table th {
             text-align: center;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 1px;
+            background-color: #f6f6f6;
         }
 
         .performance-trait-text {
             font-size: 13px;
             line-height: 1.5;
-            white-space: pre-line;
         }
 
         .performance-grade {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            align-items: stretch;
+            gap: 10px;
         }
 
         .performance-grade select {
-            width: 100%;
-            padding: 8px;
-            font-size: 14px;
+            border: 1px solid #000;
+            border-radius: 0;
+            padding: 6px 8px;
         }
 
         .performance-grade-score {
-            border: 1px solid #000;
+            border: var(--border-weight) solid #000;
             padding: 8px;
             text-align: center;
             font-weight: bold;
+            font-size: 16px;
         }
 
         .performance-comments {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .performance-comments textarea {
@@ -213,226 +345,678 @@
             min-height: 80px;
             border: 1px solid #000;
             border-radius: 0;
-            font-size: 14px;
             resize: none;
+        }
+
+        .performance-category {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 2px;
+            padding: 8px 4px;
+            background-color: #fff;
+        }
+
+        .reporting-row {
+            margin-top: 0;
+            display: grid;
+            grid-template-columns: 1.8fr repeat(5, 1fr);
+            border: var(--border-weight) solid #000;
+            border-top: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .reporting-row .form-group {
+            margin: 0;
+            padding: 12px 15px;
+            border-right: var(--border-weight) solid #000;
+        }
+
+        .reporting-row .form-group:last-child {
+            border-right: none;
+        }
+
+        .block-28-row,
+        .block-29-row,
+        .block-40-row {
+            border: var(--border-weight) solid #000;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .block-28-row,
+        .block-40-row {
+            border-top: 0;
+        }
+
+        .block-28-row label,
+        .block-29-row label,
+        .block-40-row label {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .block-28-row textarea,
+        .block-29-row textarea,
+        .block-40-row textarea {
+            width: 100%;
+            border: 1px solid #000;
+            border-radius: 0;
+            resize: none;
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .block-28-row textarea {
+            min-height: 120px;
+        }
+
+        .block-29-row input[type="text"] {
+            border: 1px solid #000;
+            border-radius: 0;
+            padding: 6px 8px;
+            font-size: 14px;
+            width: 280px;
+            max-width: 100%;
+        }
+
+        .block-30-row {
+            border: var(--border-weight) solid #000;
+            display: grid;
+            grid-template-columns: 1.6fr 1.1fr 1.2fr 1.4fr;
+            gap: 0;
+        }
+
+        .block-30-cell {
+            padding: 12px 15px;
+            border-right: var(--border-weight) solid #000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .block-30-cell:first-child {
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .block-30-cell:last-child {
+            border-right: none;
+        }
+
+        .block-30-cell input[type="date"],
+        .block-30-cell input[type="text"] {
+            border: 1px solid #000;
+            border-radius: 0;
+            padding: 6px 8px;
+            font-size: 14px;
+        }
+
+        .signature-box-print {
+            border: 1px solid #000;
+            height: 65px;
+        }
+
+        .three-column-section {
+            margin-top: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 0;
+        }
+
+        .column-block {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            border-right: var(--border-weight) solid #000;
+        }
+
+        .column-block:last-child {
+            border-right: none;
+        }
+
+        .column-header {
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding-bottom: 8px;
+        }
+
+        .ranking-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ranking-input input,
+        .decimal-input {
+            width: 80px;
+            padding: 6px 8px;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 0;
+        }
+
+        .averages-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 12px;
+            height: 100%;
+        }
+
+        .averages-member-trait {
+            grid-row: 1 / 3;
+            border-right: 1px solid #000;
+            padding-right: 10px;
+            margin-right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .trait-average-box {
+            border: 1px solid #000;
+            padding: 12px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .summary-breakdown {
+            grid-column: 1 / 3;
+            border-top: 1px solid #000;
+            padding-top: 15px;
+        }
+
+        .summary-breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .summary-breakdown-item label {
+            font-size: 12px;
+        }
+
+        .summary-breakdown-item input {
+            border: 1px solid #000;
+            padding: 6px;
+            border-radius: 0;
+        }
+
+        .block-49-row {
+            border: var(--border-weight) solid #000;
+            border-top: 0;
+            display: grid;
+            grid-template-columns: 2.5fr 2fr;
+        }
+
+        .block-49-text {
+            padding: 15px;
+            font-size: 13px;
+            font-weight: 700;
+            border-right: var(--border-weight) solid #000;
+            display: flex;
+            align-items: center;
+        }
+
+        .block-49-actions {
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .statement-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .statement-option input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        .signature-box {
+            flex-grow: 1;
+            border: 1px solid #000;
+            height: 55px;
+            min-width: 200px;
+        }
+
+        .signature-date {
+            font-weight: 700;
+        }
+
+        .block-50-52-row {
+            border: var(--border-weight) solid #000;
+            border-top: 0;
+            display: grid;
+            grid-template-columns: 2.5fr 1.2fr;
+        }
+
+        .block-50-52-left {
+            border-right: var(--border-weight) solid #000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .block-section {
+            padding: 15px;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .block-section + .block-section {
+            border-top: var(--border-weight) solid #000;
+        }
+
+        .block-section .signature-area {
+            display: flex;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .block-section .signature-box {
+            min-width: 260px;
+        }
+
+        .block-51-column {
+            padding: 15px;
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .block-51-column .contact-line {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-footer {
+            border-top: 2px solid #000;
+            padding: 10px 30px 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 30px;
+            font-size: 15px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            border: 1px solid #000;
+            background-color: #f4f4f4;
+            color: #000;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #dedede;
+        }
+
+        .error {
+            color: #b00000;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 15px;
+            }
+
+            form#chiefEvalForm {
+                padding: 20px;
+            }
+
+            .top-blocks,
+            .service-blocks,
+            .mid-blocks,
+            .occasion-period-section,
+            .reporting-row,
+            .three-column-section,
+            .block-30-row,
+            .block-49-row,
+            .block-50-52-row {
+                grid-template-columns: 1fr;
+            }
+
+            .top-blocks .form-group,
+            .service-blocks .form-group,
+            .mid-blocks .form-group,
+            .reporting-row .form-group,
+            .block-30-cell,
+            .block-49-text,
+            .block-49-actions,
+            .block-50-52-left,
+            .block-51-column {
+                border-right: none;
+                min-height: auto;
+            }
+
+            .occasion-period-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .occasion-period-section .block-cell {
+                border-right: none;
+            }
+
+            .single-checkbox label {
+                justify-content: flex-start;
+            }
+
+            .block-30-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-footer {
+                flex-direction: column;
+                gap: 6px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="form-container">
-    <h2>Chief Eval Form</h2>
+    <div class="form-header">
+        <div class="form-title">EVALUATION & COUNSELING RECORD (E7-E9)</div>
+        <div class="form-subtitle">NAVPERS 1616/27 (REV 05-2025)</div>
+    </div>
     <form id="chiefEvalForm">
 
-        <!-- Personal Info Section -->
-        <div class="section-title">Personal Information</div>
-
+        <!-- Blocks 1-8 -->
         <div class="top-blocks">
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">1. Name</label>
                 <input type="text" id="name" placeholder="Full Name" required>
             </div>
 
             <div class="form-group">
-                <label for="rating">Rating</label>
+                <label for="rating">2. Rating</label>
                 <input type="text" id="rating" placeholder="Rating" required>
             </div>
 
             <div class="form-group">
-                <label for="designation">Designation</label>
+                <label for="designation">3. Designation</label>
                 <input type="text" id="designation" placeholder="Designation" required>
             </div>
 
             <div class="form-group">
-                <label for="ssn">SSN</label>
-                <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
+                <label for="ssn">4. SSN</label>
+                <div class="ssn-wrapper">
+                    <input type="text" id="ssn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
+                    <span class="ssn-toggle" onclick="toggleSSN('ssn')">Show</span>
+                </div>
             </div>
         </div>
 
-        <!-- Checkbox Block for ACT, TAR, INACT, AT/ADOS/265 -->
-        <div class="section-title">Status Information</div>
-        <div class="checkbox-group">
-            <label for="act">
-                <input type="checkbox" id="act" name="status" onclick="onlyOne(this)"> ACT
-            </label>
-            <label for="tar">
-                <input type="checkbox" id="tar" name="status" onclick="onlyOne(this)"> TAR
-            </label>
-            <label for="inact">
-                <input type="checkbox" id="inact" name="status" onclick="onlyOne(this)"> INACT
-            </label>
-            <label for="ados">
-                <input type="checkbox" id="ados" name="status" onclick="onlyOne(this)"> AT/ADOS/265
-            </label>
-        </div>
+        <div class="service-blocks">
+            <div class="form-group">
+                <label>5. Status</label>
+                <div class="checkbox-group checkbox-inline">
+                    <label for="act">
+                        <input type="checkbox" id="act" name="status" onclick="onlyOne(this)"> ACT
+                    </label>
+                    <label for="tar">
+                        <input type="checkbox" id="tar" name="status" onclick="onlyOne(this)"> TAR
+                    </label>
+                    <label for="inact">
+                        <input type="checkbox" id="inact" name="status" onclick="onlyOne(this)"> INACT
+                    </label>
+                    <label for="ados">
+                        <input type="checkbox" id="ados" name="status" onclick="onlyOne(this)"> AT/ADOS/265
+                    </label>
+                </div>
+            </div>
 
-        <!-- Service Information Section -->
-        <div class="section-title">Service Information</div>
+            <div class="form-group">
+                <label for="uic">6. UIC</label>
+                <input type="text" id="uic" placeholder="UIC" required>
+            </div>
 
-        <div class="form-group">
-            <label for="uic">UIC</label>
-            <input type="text" id="uic" placeholder="UIC" required>
-        </div>
+            <div class="form-group">
+                <label for="shipStation">7. Ship/Station</label>
+                <input type="text" id="shipStation" placeholder="Ship/Station" required>
+            </div>
 
-        <div class="form-group">
-            <label for="shipStation">Ship/Station</label>
-            <input type="text" id="shipStation" placeholder="Ship/Station" required>
-        </div>
+            <div class="form-group">
+                <label for="promotionStatus">8. Promotion Status</label>
+                <select id="promotionStatus" required>
+                    <option value="none">   </option>
+                    <option value="Regular">Regular</option>
+                    <option value="Frocked">Frocked</option>
+                    <option value="Selected">Selected</option>
+                    <option value="Spot">Spot</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="promotionStatus">Promotion Status</label>
-            <select id="promotionStatus" required>
-                <option value="none">   </option>
-                <option value="Regular">Regular</option>
-                <option value="Frocked">Frocked</option>
-                <option value="Selected">Selected</option>
-                <option value="Spot">Spot</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="dateReported">Date Reported</label>
-            <input type="date" id="dateReported" required>
-        </div>
-
-        <div class="section-title">Occasion For Report</div>
-        <div class="checkbox-group">
-            <label for="periodic">
-                <input type="checkbox" id="periodic" name="periodic"> 10. Periodic
-            </label>
-            <label for="detachi">
-                <input type="checkbox" id="detachi" name="detachi"> 11. Detachment of Individual
-            </label>
-            <label for="detachr">
-                <input type="checkbox" id="detachr" name="detachr"> 12. Detachment of Reporting Senior
-            </label>
-            <label for="special">
-                <input type="checkbox" id="special" name="special"> 13. Special
-            </label>
-        </div>
-
-        <div class="form-group">
-            <label for="reportperiod">Period of Report</label>
-            <div class="checkbox-group">
-            <input type="date" id="fromdate" required>14. From
-            <input type="date" id="todate" required>15. To
+            <div class="form-group">
+                <label for="dateReported">9. Date Reported</label>
+                <input type="date" id="dateReported" required>
             </div>
         </div>
 
-        <div class="section-title">Type of Report</div>
-        <div class="checkbox-group">
-            <label for="reportType">
-                <input type="checkbox" id="regular" name="regular"> 17. Regular
-            </label>
-            <label for="concurrent">
-                <input type="checkbox" id="concurrent" name="concurrent"> 18. Concurrent
-            </label>
-            <label for="opscdr">
-                <input type="checkbox" id="opscdr" name="opscdr"> 19. Ops Cdr
-            </label>
+        <!-- Blocks 10-15 -->
+        <div class="occasion-period-section">
+            <div class="block-cell checkbox-inline-cell">
+                <label>
+                    <input type="checkbox" id="periodic" name="periodic">
+                    <span>10. Periodic</span>
+                </label>
+            </div>
+            <div class="block-cell checkbox-inline-cell">
+                <label>
+                    <input type="checkbox" id="detachi" name="detachi">
+                    <span>11. Detachment of Individual</span>
+                </label>
+            </div>
+            <div class="block-cell checkbox-inline-cell">
+                <label>
+                    <input type="checkbox" id="detachr" name="detachr">
+                    <span>12. Detachment of Reporting Senior</span>
+                </label>
+            </div>
+            <div class="block-cell checkbox-inline-cell">
+                <label>
+                    <input type="checkbox" id="special" name="special">
+                    <span>13. Special</span>
+                </label>
+            </div>
+            <div class="block-cell">
+                <label for="fromdate">14. From</label>
+                <input type="date" id="fromdate" required>
+            </div>
+            <div class="block-cell">
+                <label for="todate">15. To</label>
+                <input type="date" id="todate" required>
+            </div>
         </div>
 
-        <!-- Evaluation Information Section -->
-        <div class="section-title">Physical Readiness</div>
+        <div class="mid-blocks">
+            <div class="form-group single-checkbox">
+                <label for="notObservedReport">
+                    <input type="checkbox" id="notObservedReport" name="notObservedReport">
+                    16. Not Observed Report
+                </label>
+            </div>
+            <div class="form-group single-checkbox">
+                <label for="regular">
+                    <input type="checkbox" id="regular" name="regular"> 17. Regular
+                </label>
+            </div>
+            <div class="form-group single-checkbox">
+                <label for="concurrent">
+                    <input type="checkbox" id="concurrent" name="concurrent"> 18. Concurrent
+                </label>
+            </div>
+            <div class="form-group single-checkbox">
+                <label for="opscdr">
+                    <input type="checkbox" id="opscdr" name="opscdr"> 19. Ops Cdr
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="physicalReadiness">20. Physical Readiness</label>
+                <div class="physical-readiness-row">
+                    <div class="physical-month-picker">
+                        <span id="physicalReadinessDisplay" class="month-display">MM/YY</span>
+                        <input type="month" id="physicalReadinessDate">
+                    </div>
+                    <select id="physicalReadiness" required>
+                        <option value="Maximum">Maximum</option>
+                        <option value="Good">Good</option>
+                        <option value="Satisfactory">Satisfactory</option>
+                    <option value="Probationary">Probationary</option>
+                    <option value="Failure">Failure</option>
+                    <option value="MedWaiver">Med Waiver</option>
+                    <option value="DepOp">Dep/OP</option>
+                    <option value="none">None</option>
+                    </select>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label for="physicalReadiness">20. Physical Readiness</label>
-            <select id="physicalReadiness" required>
-                <option value="Maximum">Maximum</option>
-                <option value="Good">Good</option>
-                <option value="Satisfactory">Satisfactory</option>
-                <option value="Probationary">Probationary</option>
-                <option value="Failure">Failure</option>
-                <option value="MedWaiver">Med Waiver</option>
-                <option value="DepOp">Dep/OP</option>
-                <option value="none">None</option>
-            </select>
+            <div class="form-group">
+                <label for="billetSubcategory">21. Billet Subcategory</label>
+                <select id="billetSubcategory" required>
+                    <option value="NA">NA</option>
+                    <option value="Basic">BASIC</option>
+                    <option value="Approved">APPROVED</option>
+                    <option value="Screened">SCREENED</option>
+                    <option value="indivAug">INDIV AUG</option>
+                    <option value="COAfloat">CO AFLOAT</option>
+                    <option value="COAshore">CO ASHORE</option>
+                    <option value="OIC">OIC</option>
+                    <option value="seaComp">SEA COMP</option>
+                    <option value="CRF">CRF</option>
+                    <option value="canvasser">CANVASER</option>
+                    <option value="resident">RESIDENT</option>
+                    <option value="intern">INTERN</option>
+                    <option value="instructor">INSTRUCTOR</option>
+                    <option value="student">STUDENT</option>
+                    <option value="resac1">RESAC1</option>
+                    <option value="resac6">RESAC6</option>
+                    <option value="special1">SPECIAL01</option>
+                    <option value="special2">SPECIAL02</option>
+                    <option value="special3">SPECIAL03</option>
+                    <option value="special4">SPECIAL04</option>
+                    <option value="special5">SPECIAL05</option>
+                    <option value="special06">SPECIAL06</option>
+                    <option value="special07">SPECIAL07</option>
+                    <option value="special08">SPECIAL08</option>
+                    <option value="special09">SPECIAL09</option>
+                    <option value="special10">SPECIAL10</option>
+                    <option value="special11">SPECIAL11</option>
+                    <option value="special12">SPECIAL12</option>
+                    <option value="special13">SPECIAL13</option>
+                    <option value="special14">SPECIAL14</option>
+                    <option value="special15">SPECIAL15</option>
+                    <option value="special16">SPECIAL16</option>
+                    <option value="special17">SPECIAL17</option>
+                    <option value="special18">SPECIAL18</option>
+                    <option value="special19">SPECIAL19</option>
+                    <option value="special20">SPECIAL20</option>
+                </select>
+            </div>
         </div>
 
-                <div class="form-group">
-            <label for="billetSubcategory">21.  Billet Subcategory</label>
-            <select id="billetSubcategory" required>
-                <option value="NA">NA</option>
-                <option value="Basic">BASIC</option>
-                <option value="Approved">APPROVED</option>
-                <option value="Screened">SCREENED</option>
-                <option value="indivAug">INDIV AUG</option>
-                <option value="COAfloat">CO AFLOAT</option>
-                <option value="COAshore">CO ASHORE</option>
-                <option value="OIC">OIC</option>
-                <option value="seaComp">SEA COMP</option>
-                <option value="CRF">CRF</option>
-                <option value="canvasser">CANVASER</option>
-                <option value="resident">RESIDENT</option>
-                <option value="intern">INTERN</option>
-                <option value="instructor">INSTRUCTOR</option>
-                <option value="student">STUDENT</option>
-                <option value="resac1">RESAC1</option>
-                <option value="resac6">RESAC6</option>
-                <option value="special1">SPECIAL01</option>
-                <option value="special2">SPECIAL02</option>
-                <option value="special3">SPECIAL03</option>
-                <option value="special4">SPECIAL04</option>
-                <option value="special5">SPECIAL05</option>
-                <option value="special06">SPECIAL06</option>
-                <option value="special07">SPECIAL07</option>
-                <option value="special08">SPECIAL08</option>
-                <option value="special09">SPECIAL09</option>
-                <option value="special10">SPECIAL10</option>
-                <option value="special11">SPECIAL11</option>
-                <option value="special12">SPECIAL12</option>
-                <option value="special13">SPECIAL13</option>
-                <option value="special14">SPECIAL14</option>
-                <option value="special15">SPECIAL15</option>
-                <option value="special16">SPECIAL16</option>
-                <option value="special17">SPECIAL17</option>
-                <option value="special18">SPECIAL18</option>
-                <option value="special19">SPECIAL19</option>
-                <option value="special20">SPECIAL20</option>
-            </select>
+
+        <div class="reporting-row">
+            <div class="form-group">
+                <label for="reportingSenior">22. Reporting Senior (LAST, FI MI)</label>
+                <input type="text" id="reportingSenior" placeholder="Reporting Senior" required>
+            </div>
+
+            <div class="form-group">
+                <label for="grade">23. Grade</label>
+                <input type="text" id="grade" placeholder="Grade" required>
+            </div>
+
+            <div class="form-group">
+                <label for="desig">24. Desig</label>
+                <input type="text" id="desig" placeholder="Designator" required>
+            </div>
+
+            <div class="form-group">
+                <label for="title">25. Title</label>
+                <input type="text" id="title" placeholder="Title" required>
+            </div>        
+            
+            <div class="form-group">
+                <label for="rsUic">26. UIC</label>
+                <input type="text" id="rsUic" placeholder="UIC" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rsSsn">27.  SSN</label>
+                <div class="ssn-wrapper">
+                    <input type="text" id="rsSsn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
+                    <span class="ssn-toggle" onclick="toggleSSN('rsSsn')">Show</span>
+                </div>
+            </div>
         </div>
 
-
-        <div class="form-group">
-            <label for="reportingSenior">22. Reporting Senior (LAST, FI MI)</label>
-            <input type="text" id="reportingSenior" placeholder="Reporting Senior" required>
+        <div class="block-28-row">
+            <label for="block28">28. Command Employment and Command Achievements</label>
+            <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="grade">23. Grade</label>
-            <input type="text" id="grade" placeholder="Grade" required>
+        <div class="block-29-row">
+            <label for="primaryWatchCode">29. Primary/Watch Standing</label>
+            <input type="text" id="primaryWatchCode" placeholder="Primary duty abbreviation" maxlength="11">
+            <textarea id="primaryWatchDescription" placeholder="Enter qualifications or watch-standing details" maxlength="150" rows="3" required></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="desig">24. Desig</label>
-            <input type="text" id="desig" placeholder="Designator" required>
+        <div class="block-30-row">
+            <div class="block-30-cell">
+                Midterm Counseling
+            </div>
+            <div class="block-30-cell">
+                <label for="midtermDate">30. Date Counseled</label>
+                <input type="date" id="midtermDate">
+            </div>
+            <div class="block-30-cell">
+                <label for="midtermCounselor">31. Counselor</label>
+                <input type="text" id="midtermCounselor" placeholder="Counselor name">
+            </div>
+            <div class="block-30-cell">
+                <label>32. Signature of Individual Counseled</label>
+                <div class="signature-box-print"></div>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="title">25. Title</label>
-            <input type="text" id="title" placeholder="Title" required>
-        </div>        
-        
-        <div class="form-group">
-            <label for="rsUic">26. UIC</label>
-            <input type="text" id="rsUic" placeholder="UIC" required>
-        </div>
-
-        <div class="form-group">
-            <label for="rsSsn">27.  SSN</label>
-            <input type="text" id="rsSsn" class="ssn-mask" placeholder="XXX-XX-XXXX" required maxlength="11" pattern="\d{3}-\d{2}-\d{4}">
-        </div>
-
-        <div class="section-title">Block 28: Command Employment and Command Achievements</div>
-            <div class="form-group textarea-group">
-                <label for="block28">Command Employment and Command Achievements</label>
-                <textarea id="block28" placeholder="Enter achievements" maxlength="500" rows="5" required style="resize: none;"></textarea>
-        </div>
+        <div class="page-heading">EVALUATION & COUNSELING RECORD (E7-E9) (cont'd)</div>
 
         <div class="performance-section">
             <table class="performance-table">
                 <thead>
                     <tr>
+                        <th style="width: 40px;"></th>
                         <th>PERFORMANCE TRAITS</th>
                         <th>PERFORMANCE GRADE</th>
                         <th>PERFORMANCE COMMENTS</th>
@@ -440,6 +1024,7 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td rowspan="2" class="performance-category">COMPETENCY</td>
                         <td class="performance-trait-text">
 33. TECHNICAL MASTERY.
 - Technical expert in rating and community.
@@ -510,6 +1095,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <td rowspan="2" class="performance-category">CHARACTER</td>
                         <td class="performance-trait-text">
 35. PROFESSIONALISM.
 - Demonstrates military bearing and professional conduct at all times.
@@ -580,6 +1166,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <td rowspan="1" class="performance-category">CHARACTER</td>
                         <td class="performance-trait-text">
 37. ACCOUNTABILITY.
 - Accepts responsibility for mission accomplishment and welfare of subordinates.
@@ -615,6 +1202,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <td rowspan="2" class="performance-category">CULTURE</td>
                         <td class="performance-trait-text">
 38. DECKPLATE LEADERSHIP.
 - Leads by example and demonstrates technical and tactical proficiency.
@@ -688,14 +1276,142 @@
             </table>
         </div>
 
+        <div class="block-40-row">
+            <label for="block40">40. Reporting Senior Comments</label>
+            <textarea id="block40" placeholder="Enter reporting senior comments" maxlength="419" rows="5" required></textarea>
+        </div>
 
+        <div class="three-column-section">
+            <div class="column-block">
+                <div class="column-header">Promotion Recommendation</div>
+                <div class="form-group">
+                    <label for="individual">41. Individual</label>
+                    <select id="individual" name="individual">
+                        <option value="" selected></option>
+                        <option value="earlyPromote">Early Promote</option>
+                        <option value="mustPromote">Must Promote</option>
+                        <option value="promotable">Promotable</option>
+                        <option value="progressing">Progressing</option>
+                        <option value="significantProblems">Significant Problems</option>
+                        <option value="nob">NOB</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="summaryRanking">42. Summary Ranking</label>
+                    <div class="ranking-input">
+                        <input type="text" id="rankingNum" maxlength="3" pattern="\d{1,3}" placeholder="000">
+                        <span>of</span>
+                        <input type="text" id="rankingTotal" maxlength="3" pattern="\d{1,3}" placeholder="000">
+                    </div>
+                </div>
+            </div>
+            <div class="column-block">
+                <div class="column-header">Averages</div>
+                <div class="averages-grid">
+                    <div class="averages-member-trait">
+                        <label>43. Member Trait</label>
+                        <div class="trait-average-box" id="memberTraitAverage">0.00</div>
+                    </div>
+                    <div>
+                        <label for="rsca">44. RSCA</label>
+                        <input type="text" id="rsca" class="decimal-input" maxlength="4" placeholder="0.00">
+                    </div>
+                    <div>
+                        <label for="groupSummary">45. Group Summary</label>
+                        <input type="text" id="groupSummary" class="decimal-input" maxlength="4" placeholder="0.00">
+                    </div>
+                </div>
+            </div>
+            <div class="column-block">
+                <div class="column-header">Career Milestone Recommendations</div>
+                <div class="form-group">
+                    <label for="firstRecommendation">46. First Recommendation</label>
+                    <textarea id="firstRecommendation" placeholder="Enter first recommendation" rows="3" maxlength="20" style="resize: none;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="secondRecommendation">47. Second Recommendation</label>
+                    <textarea id="secondRecommendation" placeholder="Enter second recommendation" rows="3" maxlength="20" style="resize: none;"></textarea>
+                </div>
+            </div>
+            <div class="summary-breakdown">
+                <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">48. Summary Group Breakdown</div>
+                <div class="summary-breakdown-grid">
+                    <div class="summary-breakdown-item">
+                        <label>Significant Problems</label>
+                        <input type="text" id="significantProblemsCount" maxlength="3" placeholder="0">
+                    </div>
+                    <div class="summary-breakdown-item">
+                        <label>Progressing</label>
+                        <input type="text" id="progressingCount" maxlength="3" placeholder="0">
+                    </div>
+                    <div class="summary-breakdown-item">
+                        <label>Promotable</label>
+                        <input type="text" id="promotableCount" maxlength="3" placeholder="0">
+                    </div>
+                    <div class="summary-breakdown-item">
+                        <label>Must Promote</label>
+                        <input type="text" id="mustPromoteCount" maxlength="3" placeholder="0">
+                    </div>
+                    <div class="summary-breakdown-item">
+                        <label>Early Promote</label>
+                        <input type="text" id="earlyPromoteCount" maxlength="3" placeholder="0">
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="block-49-row">
+            <div class="block-49-text">
+                49. Signature of individual evaluated "I have seen this report, been appraised of my performance, and understand my right to make a statement."
+            </div>
+            <div class="block-49-actions">
+                <div class="statement-option">
+                    <span>I intend to submit a statement</span>
+                    <input type="checkbox" id="intendStatement" name="statementIntent" onclick="onlyOneStatement(this)">
+                </div>
+                <div class="statement-option">
+                    <span>I do not intend to submit a statement</span>
+                    <input type="checkbox" id="noIntendStatement" name="statementIntent" onclick="onlyOneStatement(this)">
+                </div>
+                <div class="signature-box"></div>
+                <div class="signature-date">Date:</div>
+            </div>
+        </div>
 
+        <div class="block-50-52-row">
+            <div class="block-50-52-left">
+                <div class="block-section">
+                    <div>50. Signature of Reporting Senior and Date</div>
+                    <div class="signature-area">
+                        <div class="signature-box"></div>
+                        <div class="signature-date">Date:</div>
+                    </div>
+                </div>
+                <div class="block-section">
+                    <div>52. Typed name, grade, command, UIC, and signature of reporting senior</div>
+                    <div class="signature-area">
+                        <div class="signature-box"></div>
+                        <div class="signature-date">Date:</div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-51-column">
+                <div>51. Reporting Senior Address and Phone Number</div>
+                <div class="contact-line">
+                    <span>Phone:</span>
+                    <span>DSN:</span>
+                </div>
+            </div>
+        </div>
 
         <!-- Submit Button -->
         <button type="submit">Submit</button>
     </form>
     <div class="error" id="errorMessage"></div>
+    <div class="form-footer">
+        <span>NAVPERS 1616/27 (REV 05-2025)</span>
+        <span>CUI When Filled In - Previous Editions are Obsolete</span>
+    </div>
 </div>
 
 <script src="chief-eval-form.js"></script>
@@ -709,6 +1425,192 @@
                 item.checked = false;
             }
         });
+    }
+
+    // JavaScript to allow only one statement intent checkbox to be selected
+    function onlyOneStatement(checkbox) {
+        var checkboxes = document.getElementsByName('statementIntent');
+        checkboxes.forEach((item) => {
+            if (item !== checkbox) {
+                item.checked = false;
+            }
+        });
+    }
+
+    // SSN masking functionality
+    const ssnData = {
+        ssn: { actualValue: '', isMasked: true },
+        rsSsn: { actualValue: '', isMasked: true }
+    };
+
+    function formatSSN(value) {
+        // Remove all non-digits
+        const digits = value.replace(/\D/g, '');
+
+        // Format as XXX-XX-XXXX
+        if (digits.length <= 3) {
+            return digits;
+        } else if (digits.length <= 5) {
+            return digits.slice(0, 3) + '-' + digits.slice(3);
+        } else {
+            return digits.slice(0, 3) + '-' + digits.slice(3, 5) + '-' + digits.slice(5, 9);
+        }
+    }
+
+    function maskSSN(value) {
+        // Remove all non-digits
+        const digits = value.replace(/\D/g, '');
+
+        if (digits.length <= 5) {
+            // If 5 or fewer digits, mask all
+            return 'X'.repeat(Math.min(3, digits.length)) +
+                   (digits.length > 3 ? '-' + 'X'.repeat(digits.length - 3) : '');
+        } else {
+            // Show only last 4 digits
+            const last4 = digits.slice(-4);
+            if (digits.length <= 7) {
+                return 'XXX-XX-' + last4.slice(0, digits.length - 5);
+            } else {
+                return 'XXX-XX-' + last4;
+            }
+        }
+    }
+
+    function toggleSSN(fieldId) {
+        const field = document.getElementById(fieldId);
+        const data = ssnData[fieldId];
+
+        data.isMasked = !data.isMasked;
+
+        if (data.isMasked) {
+            field.value = maskSSN(data.actualValue);
+        } else {
+            field.value = formatSSN(data.actualValue);
+        }
+    }
+
+    function handleSSNInput(fieldId) {
+        const field = document.getElementById(fieldId);
+        const data = ssnData[fieldId];
+
+        // Get cursor position
+        const cursorPos = field.selectionStart;
+
+        // Store actual value (digits only with formatting)
+        data.actualValue = formatSSN(field.value);
+
+        // Display masked or unmasked
+        if (data.isMasked) {
+            field.value = maskSSN(data.actualValue);
+        } else {
+            field.value = data.actualValue;
+        }
+    }
+
+    // Initialize SSN fields
+    document.addEventListener('DOMContentLoaded', function() {
+        const ssnField = document.getElementById('ssn');
+        const rsSsnField = document.getElementById('rsSsn');
+
+        ssnField.addEventListener('input', function() {
+            handleSSNInput('ssn');
+        });
+
+        rsSsnField.addEventListener('input', function() {
+            handleSSNInput('rsSsn');
+        });
+
+        // Initialize decimal formatting for RSCA and Group Summary
+        const rscaField = document.getElementById('rsca');
+        const groupSummaryField = document.getElementById('groupSummary');
+
+        rscaField.addEventListener('input', function() {
+            formatDecimalInput('rsca');
+        });
+
+        groupSummaryField.addEventListener('input', function() {
+            formatDecimalInput('groupSummary');
+        });
+
+        const physicalReadinessDate = document.getElementById('physicalReadinessDate');
+        const physicalReadinessDisplay = document.getElementById('physicalReadinessDisplay');
+
+        if (physicalReadinessDate && physicalReadinessDisplay) {
+            const updatePhysicalReadinessDisplay = () => {
+                const value = physicalReadinessDate.value;
+                if (value) {
+                    const [year, month] = value.split('-');
+                    const shortYear = year ? year.slice(-2) : '';
+                    physicalReadinessDisplay.textContent = `${month || 'MM'}/${shortYear || 'YY'}`;
+                } else {
+                    physicalReadinessDisplay.textContent = 'MM/YY';
+                }
+            };
+
+            physicalReadinessDate.addEventListener('input', updatePhysicalReadinessDisplay);
+            physicalReadinessDate.addEventListener('change', updatePhysicalReadinessDisplay);
+            updatePhysicalReadinessDisplay();
+
+            const physicalPicker = physicalReadinessDisplay.closest('.physical-month-picker');
+            if (physicalPicker) {
+                physicalPicker.addEventListener('click', () => {
+                    if (typeof physicalReadinessDate.showPicker === 'function') {
+                        physicalReadinessDate.showPicker();
+                    } else {
+                        physicalReadinessDate.focus();
+                    }
+                });
+            }
+        }
+    });
+
+    // Calculate trait average
+    function calculateTraitAverage() {
+        const gradeIds = [
+            'technicalMasterGrade',
+            'institutionalExpertiseGrade',
+            'professionalismGrade',
+            'integrityGrade',
+            'accountabilityGrade',
+            'deckplateLeadershipGrade',
+            'teamEffectivenessGrade'
+        ];
+
+        let sum = 0;
+        let count = 0;
+
+        gradeIds.forEach(id => {
+            const value = document.getElementById(id).value;
+            // Only include numeric values (not empty, not NOB)
+            if (value && value !== 'NOB' && !isNaN(parseFloat(value))) {
+                sum += parseFloat(value);
+                count++;
+            }
+        });
+
+        const average = count > 0 ? (sum / count).toFixed(2) : '0.00';
+        document.getElementById('memberTraitAverage').textContent = average;
+    }
+
+    // Format decimal inputs as #.##
+    function formatDecimalInput(fieldId) {
+        const field = document.getElementById(fieldId);
+        let value = field.value.replace(/[^\d.]/g, '');
+
+        // Ensure only one decimal point
+        const parts = value.split('.');
+        if (parts.length > 2) {
+            value = parts[0] + '.' + parts.slice(1).join('');
+        }
+
+        // Limit to format #.##
+        if (parts.length === 2) {
+            value = parts[0].slice(0, 1) + '.' + parts[1].slice(0, 2);
+        } else if (parts.length === 1) {
+            value = parts[0].slice(0, 1);
+        }
+
+        field.value = value;
     }
 
     // Update Technical Mastery text based on selected grade
@@ -729,6 +1631,7 @@
 
         textDiv.innerHTML = gradeTexts[grade] || '';
         scoreDiv.textContent = grade || '';
+        calculateTraitAverage();
     }
 
     // Update functions for other traits
@@ -749,6 +1652,7 @@
 
         textDiv.innerHTML = gradeTexts[grade] || '';
         scoreDiv.textContent = grade || '';
+        calculateTraitAverage();
     }
 
     function updateProfessionalismText() {
@@ -768,6 +1672,7 @@
 
         textDiv.innerHTML = gradeTexts[grade] || '';
         scoreDiv.textContent = grade || '';
+        calculateTraitAverage();
     }
 
     function updateIntegrityText() {
@@ -787,6 +1692,7 @@
 
         textDiv.innerHTML = gradeTexts[grade] || '';
         scoreDiv.textContent = grade || '';
+        calculateTraitAverage();
     }
 
     function updateAccountabilityText() {
@@ -806,6 +1712,7 @@
 
         textDiv.innerHTML = gradeTexts[grade] || '';
         scoreDiv.textContent = grade || '';
+        calculateTraitAverage();
     }
 
     function updateDeckplateLeadershipText() {
@@ -825,6 +1732,7 @@
 
         textDiv.innerHTML = gradeTexts[grade] || '';
         scoreDiv.textContent = grade || '';
+        calculateTraitAverage();
     }
 
     function updateTeamEffectivenessText() {
@@ -844,9 +1752,9 @@
 
         textDiv.innerHTML = gradeTexts[grade] || '';
         scoreDiv.textContent = grade || '';
+        calculateTraitAverage();
     }
 </script>
 
 </body>
 </html>
-
